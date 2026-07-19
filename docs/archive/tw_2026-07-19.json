@@ -1,0 +1,222 @@
+{
+  "title": "今日台股焦點與深度聲報",
+  "written_report": {
+    "stock_market": "# 台股黑色星期五慘案：摜破季線與史上最大跌點之技術解析\n\n### 一、 大盤走勢與關鍵技術位階\n台股於 2026 年 7 月 17 日遭遇史上最慘烈的單日崩跌，加權指數開低走低，尾盤賣壓瘋狂湧現，終場**崩跌 2,953 點**，收在 **42,671 點**，跌幅高達 **6.47%**。此役不僅直接摜破關鍵防線——**季線（生命線）**，更爆出 **1.21 兆至 1.3 兆元**的歷史級天量。大盤呈現「帶量長黑、多頭棄守」的極端空頭格局。\n\n* **支撐與壓力研判**：\n  * **短線壓力**：原季線位置（約 44,500 點至 45,000 點區間）已由支撐轉為強大反彈壓力。\n  * **下檔支撐**：次一級波段支撐需退守至**半年線（約 41,200 點附近）**。若下週未能迅速收復季線，盤勢恐步入中線整理。\n\n### 二、 指標權值股表現\n* **台積電 (2330)**：身為本次風暴核心，單日大跌貢獻了大盤將近 **1,396 點**的跌點，成交金額爆出驚人的 **1,752 億元**。法說會釋出的資本支出亮眼，但短線面臨外資無情提款。技術面上已跌破季線，正測試波段前低。\n* **聯發科 (2454) 與 鴻海 (2317)**：同樣難逃池魚之殃，聯發科尾盤跌勢加劇，同步跌破關鍵均線支撐；整體半導體權值股呈現全面性修正，高估值與高位階科技股賣壓極其沉重。",
+    "industry_analysis": "# 產業板塊大洗牌：電子避風港尋蹤與傳產、金融之防禦韌性\n\n### 一、 科技與 AI 族群：熱錢退潮與估值修正\n雖然輝達（NVIDIA）創辦人黃仁勳發言駁斥 AI 泡沫化，並強調硬體需求依然強勁，但由於先前漲幅過大，加上全球資金朝向防禦性板塊挪移，導致台股 AI 伺服器、CPO（矽光子）以及 BBU 等明星族群，在除權息行情中慘遭「貼息」與無情殺戮。短期內，科技股需要時間沉澱籌碼並重新建立底部。\n\n### 二、 防禦型族群逆勢撐盤\n電子股倒地之際，資金出現明顯的避風港效應，主要流向以下三大防禦板塊：\n1. **金融股（壽險與官股）**：\n   * **利多因素**：受惠於台幣近期走貶（測試 32.416 元新低），壽險型金控預期享有巨大的匯兌收益；加上央行下半年仍有升息預期，帶動 **兆豐金 (2886)、玉山金 (2884)、華南金 (2880)、三商壽 (2867)** 表現相對抗跌抗震。\n2. **電信防禦雙雄**：\n   * **中華電 (2412) 與 遠傳 (4904)**：高殖利率與極強的內需防禦特性，吸引避風港資金積極駐足。\n3. **原物料與傳統產業**：\n   * **中鋼 (2002)**：董事長釋出下半年「月月好」偏多展望，鋼鐵盤價止跌回升，股價基期極低，成為低檔防禦首選。\n   * **塑化龍頭台塑化 (6505)**：受惠原油價格回穩與短線資金避險，走勢相對穩健。",
+    "fund_flow": "# 三大法人驚人籌碼戰：歷史級賣超與散戶抄底熱潮\n\n### 一、 法人買賣超動態（黑色星期五洗盤）\n* **外資**：創下歷史紀錄第一大的單日賣超，瘋狂調節 **1,890 億元**，主要狙擊主動式/被動式 ETF（如 0050）、台積電及聯電。\n* **自營商**：同步創下歷史新高的大賣超紀錄，單日調節達 **821 億元**，避險與停損賣壓集體出籠。\n* **投信**：扮演唯一買盤支柱，逆勢護盤加碼 **95 億元**，但仍無法阻擋外資與自營商的合擊賣壓（三大法人共計賣超 **2,617 億元**）。\n\n### 二、 市場避險與散戶熱度（正2與零股狂潮）\n市場避險情緒在週五達到頂點，有趣的是，散戶與長線存股族呈現「越跌越買」的勇猛姿態：\n* **零股交易大爆發**：台灣 50 (0050) 單日刷出驚人的 **7,707 萬股** 零股交易量；台積電零股成交也高達 **2,057 萬股**。\n* **槓桿 ETF 人氣不墜**：群益臺灣加權正2 (00685L) 與主動型升級 50 ETF 爆出百萬張以上的爆量霸榜，顯示散戶「阿嬤都買正2」的搶短信心依然高漲。但須注意，鄰國南韓已開始限制個股槓桿型 ETF 發行並調高保證金，台股槓桿商品之波動風險亦在急遽拉高。",
+    "stock_recommendations": "# 投資策略：長線價值分批佈局 vs. 短線基期防禦搶彈\n\n### 一、 長線價值佈局推薦\n* **台積電 (2330)**\n  * **基本面利基**：法說會認證之 AI 需求並無衰退，且先進製程領先優勢無可動搖。本次大跌純屬市場估值修正與地緣政治避險情緒。\n  * **技術面進場點**：建議於 **季線（約 44,000 點以下相對價位）至 半年線 之間分批「梯次進場」**，不宜一次歐印。\n  * **停損守防點**：若大盤跌破歷史大箱體底部，則長期結構破壞需適度減碼，否則長線存股者可以時間換取空間。\n* **兆豐金 (2886)**\n  * **基本面利基**：官股獲利王，且放款結構受惠高利率環境，台幣貶值有利其壽險與匯兌操作，防禦力一流。\n  * **技術面進場點**：股價回測月線或季線支撐時分批布局。\n  * **停損守防點**：失守半年線防線。\n\n### 二、 短線避風港與搶彈推薦\n* **群創 (3481)**\n  * **基本面與籌碼利基**：外資於大跌當日逆勢大買將近 **6 萬張**，居個股買超第一名。推測除了 CoPoS 玻璃基板等新題材外，部分為外資借券回補。短線具有技術面反彈動能。\n  * **技術面操作**：短線進場點可觀察下週一開盤若不破前低，可極短線搶反彈。\n  * **停損防守點**：跌破前一日黑 K 棒低點，應即刻停損離場。\n* **仁寶 (2324)**\n  * **基本面利基**：低價低估值避風港，外資近日連買，抗跌力道強。\n  * **進場與防守點**：沿 5 日線向上操作，跌破 10 日線即停損。"
+  },
+  "podcast_script": [
+    {
+      "speaker": "HsiaoChen",
+      "text": "哈囉大家，歡迎收聽今日的台股焦點與深度聲報。我是 HsiaoChen。我的天啊，剛剛度過的那個星期五……真的是台股歷史上最驚心動魄的「黑色星期五」耶！大盤一天直接崩跌了 2,953 點，直接跌破季線！雲哲，你看到這個數字的時候，是不是也被嚇了一跳啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "嗨，大家好，我是 YunJhe。說真的，何止是嚇一跳，這簡直是載入台股史冊的一天啊！兩千九百多點的跌點，我們真的從來沒看過這種陣仗。不僅僅是加權指數跌了百分之六點四七，櫃買指數更慘，跌幅直接衝破百分之七。外資單日瘋狂提款了一千八百九十億，自營商也倒了八百二十一億，雙雙創下歷史新高。這根本就是法人的集體大逃殺啊！"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "對啊，看到那個賣超數字，我的眼睛都差點脫窗了……兩千多億耶！不過，市場上現在的反應好像很兩極耶。有一派人嚇到吃不下飯，但另一派人居然超興奮的，到處都在傳說「最甜的甜甜價到了」、「阿嬤都敢買正二了，你怕什麼？」……雲哲，你怎麼看？這到底是黃金坑，還是準備要繼續往下掉的無底洞啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "哈哈，連阿嬤買正二都出來了，這真的是台股特有的奇景。其實，我們要先冷靜下來拆解。這次下跌最主要的元兇，就是我們的護國神山台積電。台積電一檔股票，一天就貢獻了加權指數將近一千四百點的跌點！但如果大家有仔細看台積電日前的法說會，會發現它的資本支出和基本面其實還是非常強勁、完全沒有問題的。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "真的耶！台積電的基本面既然沒變，那為什麼會被殺成這樣子？是因為外資單純在提款，還是有其他我們沒注意到的國際利空在發酵啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "沒錯，這主要是因為全球資金的「去槓桿」和「板塊輪動」。雖然黃仁勳一直在強調 AI 沒有泡沫，但是科技股之前的漲幅實在是太巨大了，大家都在獲利了結。加上美國那邊，聯準會官員最近說話有點偏向鷹派，市場擔心縮表或降息節奏有變。外資在台股是「期現貨兩頭空」操作，一邊現貨大賣，一邊期空單留倉，所以台積電自然就變成了最方便的提款機了。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "原來是這樣……也就是說台積電是被無辜牽連的囉？那這樣子，那些大買零股的散戶，還有爆量到幾千萬股的 0050 零股交易，到底算不算是聰明的資金啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "我覺得，如果是用「長線存股」的角度，分批慢慢買，那確實是個機會。但如果是看著「正二」這種高槓桿工具，想要在下個禮拜直接賭一把反彈的，那真的要非常小心了。你看喔，隔壁的南韓，最近就因為槓桿型 ETF 風險太高，已經開始限制發行並提高保證金了。台股現在直接灌破季線，技術面上已經轉弱，如果下週沒辦法趕快站回季線，那就得去測試半年線的支撐了，這時候盲目滿倉幹槓桿，很容易斷頭的。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "哇，聽你這麼一說，真的要捏一把冷汗耶！那既然科技股現在風雨飄搖，我們有沒有什麼比較安全的避風港可以躲一下？我看禮拜五好像金融股跟一些傳產原物料股，表現得相對抗跌耶？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "這就是市場資金聰明的地方了。當科技股在失血的時候，熱錢就跑去躲在防禦型類股裡。像是金融股，特別是壽險型金控，像是兆豐金、富邦金，因為新台幣最近貶到了三十二點四元附近，他們會有很可觀的匯兌收益。加上央行還有可能升息，金融股就很有底氣。另外像中華電信、遠傳這種電信雙雄，還有基期很低的鋼鐵龍頭中鋼，都變成了資金的避雨棚。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "真的耶！而且我還注意到一檔很特別的股票，就是群創！它在禮拜五居然是成交量第一名，外資還逆勢買超了快六萬張。明明面板好像不是現在最夯的，怎麼會這樣啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "群創這檔很有意思。我覺得這很有可能是外資之前的「借券回補」。加上群創最近有玻璃基板和 CoPoS 的新技術題材在撐腰，法人的目標價雖然給得保守，但在大盤崩盤時，這種低價、有題材、且外資需要回補的股票，反而就成了解套跟短線搶反彈的指標。不過這偏向技術面操作，一般投資人還是要看清楚借券有沒有持續回補再說喔。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "嗯，了解。那雲哲，最後能不能幫我們的聽眾朋友整理一下，面對下個禮拜的台股，我們不管是長線還是短線，應該要怎麼布局，才不會在這種震盪市裡面受重傷呢？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "好。首先，長線存股族，台積電和優質金控股，你可以開始「分批」慢慢撿。台積電如果回測到半年線附近，那真的是長線很漂亮的黃金買點，但是千萬不要一次把子彈打光，要分三到五批。至於短線操作，可以關注像群創、仁寶這種低估值、有外資資金進駐的防禦性個股。進場記得設好百分之五到八的停損點，守住紀律，安全第一！"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "好的，非常感謝雲哲今天深入淺出的分析。雖然大盤大跌很痛，但冷靜下來，機會往往也是跌出來的。大家一定要顧好自己的資金，遵守紀律喔！今天的台股焦點與深度聲報就到這邊，我們下次見囉，拜拜！"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "大家要保持冷靜，注意風險，我們下次見，拜拜！"
+    }
+  ],
+  "date": "2026-07-19",
+  "investing_news": [
+    {
+      "title": "BofA lists the strongest luxury brands in 2026",
+      "link": "https://www.investing.com/news/stock-market-news/bofa-lists-the-strongest-luxury-brands-in-2026-4799697",
+      "pubDate": "2026-07-19 02:37:50",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "South Korean stocks emerge as key gauge for global AI sentiment",
+      "link": "https://www.investing.com/news/stock-market-news/south-korean-stocks-emerge-as-key-gauge-for-global-ai-sentiment-4799692",
+      "pubDate": "2026-07-19 02:03:46",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Why would Stripe want PayPal?",
+      "link": "https://www.investing.com/news/stock-market-news/why-would-stripe-want-paypal-4799689",
+      "pubDate": "2026-07-19 00:39:35",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Data center opponents stage 142 protests across 42 US states",
+      "link": "https://www.investing.com/news/stock-market-news/us-data-center-protests-go-national-as-backlash-grows-4799582",
+      "pubDate": "2026-07-19 00:00:32",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Tesla stock: How much does an improved auto business matter?",
+      "link": "https://www.investing.com/news/stock-market-news/tesla-stock-how-much-does-an-improved-auto-business-matter-4799683",
+      "pubDate": "2026-07-18 23:14:20",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Samsung Electronics America to reduce workforce by 739 in New Jersey, WARN notice says",
+      "link": "https://www.investing.com/news/stock-market-news/samsung-electronics-america-to-reduce-workforce-by-739-in-new-jersey-us-warn-notice-says-4799679",
+      "pubDate": "2026-07-18 22:42:26",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "KOSPI earnings are better. So why are stocks falling harder?",
+      "link": "https://www.investing.com/news/stock-market-news/kospi-earnings-are-better-so-why-are-stocks-falling-harder-4799678",
+      "pubDate": "2026-07-18 21:52:41",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Russia stocks lower at close of trade; MOEX Russia Index unchanged",
+      "link": "https://www.investing.com/news/stock-market-news/russia-stocks-lower-at-close-of-trade-moex-russia-index-unchanged-4799676",
+      "pubDate": "2026-07-18 21:20:03",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Soccer-The economic goal that never came: World Cup falls short of boosting Mexico",
+      "link": "https://www.investing.com/news/economic-indicators/soccerthe-economic-goal-that-never-came-world-cup-falls-short-of-boosting-mexico-4799198",
+      "pubDate": "2026-07-17 20:49:08",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "US single-family housing starts fall; building permits lowest in 10 months",
+      "link": "https://www.investing.com/news/economic-indicators/us-singlefamily-housing-starts-building-permits-fall-in-june-4798461",
+      "pubDate": "2026-07-17 17:06:50",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "US manufacturing output unchanged in June, but accelerates in second quarter",
+      "link": "https://www.investing.com/news/economic-indicators/us-manufacturing-output-unchanged-in-june-but-accelerates-in-second-quarter-4798637",
+      "pubDate": "2026-07-17 14:24:49",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Consumer sentiment beats expectations, signals stronger economic outlook",
+      "link": "https://www.investing.com/news/economic-indicators/consumer-sentiment-beats-expectations-signals-stronger-economic-outlook-93CH-4798620",
+      "pubDate": "2026-07-17 14:02:10",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "Industrial production remains steady, aligning with forecasts",
+      "link": "https://www.investing.com/news/economic-indicators/industrial-production-remains-steady-aligning-with-forecasts-93CH-4798506",
+      "pubDate": "2026-07-17 13:16:08",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "US import prices unexpectedly rise in June",
+      "link": "https://www.investing.com/news/economic-indicators/us-import-prices-unexpectedly-rise-in-june-4798492",
+      "pubDate": "2026-07-17 13:06:55",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Building permits decline more than expected, signaling economic caution",
+      "link": "https://www.investing.com/news/economic-indicators/building-permits-decline-more-than-expected-signaling-economic-caution-93CH-4798402",
+      "pubDate": "2026-07-17 12:32:07",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "Most Gulf area economies face deeper downturns this year on Hormuz disruption",
+      "link": "https://www.investing.com/news/economic-indicators/most-gulf-area-economies-face-deeper-downturns-this-year-on-hormuz-disruption-reuters-poll-4795722",
+      "pubDate": "2026-07-17 09:19:13",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "ICICI Bank Q1 profit jumps 16% as bad-loan provisions fall",
+      "link": "https://www.investing.com/news/earnings/icici-bank-q1-profit-jumps-16-as-badloan-provisions-fall-4799606",
+      "pubDate": "2026-07-18 11:26:11",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "HDFC Bank Q1 profit rises 5% on loan growth, stable asset quality",
+      "link": "https://www.investing.com/news/earnings/hdfc-bank-q1-profit-rises-5-on-loan-growth-stable-asset-quality-4799586",
+      "pubDate": "2026-07-18 11:02:46",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Domino’s Pizza earnings on deck: Can share gains survive pricing war?",
+      "link": "https://www.investing.com/news/earnings/dominos-pizza-earnings-on-deck-can-share-gains-survive-pricing-war-93CH-4798588",
+      "pubDate": "2026-07-17 13:44:28",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "AMC earnings up next: Can blockbuster summer narrow losses?",
+      "link": "https://www.investing.com/news/earnings/amc-earnings-up-next-can-blockbuster-summer-narrow-losses-93CH-4798586",
+      "pubDate": "2026-07-17 13:43:35",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Dynex Capital earnings on deck: Mortgage REIT eyes return to profit",
+      "link": "https://www.investing.com/news/earnings/dynex-capital-earnings-on-deck-mortgage-reit-eyes-return-to-profit-93CH-4798577",
+      "pubDate": "2026-07-17 13:42:42",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Fifth Third earnings missed by $0.01, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/fifth-third-earnings-missed-by-001-revenue-topped-estimates-4798350",
+      "pubDate": "2026-07-17 12:14:21",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Travelers beats Q2 estimates on strong underwriting gains",
+      "link": "https://www.investing.com/news/earnings/travelers-beats-q2-estimates-on-strong-underwriting-gains-93CH-4798104",
+      "pubDate": "2026-07-17 11:18:59",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Truist beats estimates as earnings surge 37% YoY",
+      "link": "https://www.investing.com/news/earnings/truist-beats-estimates-as-earnings-surge-37-yoy-93CH-4798101",
+      "pubDate": "2026-07-17 11:18:27",
+      "author": "Investing.com (公司盈餘)"
+    }
+  ]
+}

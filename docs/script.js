@@ -20,10 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const newsListContainer = document.getElementById('news-list-container');
     const newsCountBadge = document.getElementById('news-count');
     const dateSelect = document.getElementById('date-select');
+    
+    // Tab & Custom Card Elements
+    const tabUs = document.getElementById('tab-us');
+    const tabTw = document.getElementById('tab-tw');
+    const cardRecommend = document.getElementById('card-recommend');
+    const recommendText = document.getElementById('recommend-text');
+    const titleAnalysis = document.getElementById('title-analysis');
+    const titleFlow = document.getElementById('title-flow');
+    const titleAdvice = document.getElementById('title-advice');
+    const appLogoTitle = document.getElementById('app-logo-title');
+    const appLogoSubtitle = document.getElementById('app-logo-subtitle');
 
-    // Playback state
+    // Playback and Tab state
     let isPlaying = false;
     let currentReportData = null;
+    let currentMarket = 'us'; // 'us' or 'tw'
+
 
     // --- Audio Player Logic ---
     function togglePlay() {
@@ -119,9 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Loading Data Logic ---
     async function initApp() {
         try {
-            // Fetch archives list
-            const response = await fetch('archive_list.json');
-            if (!response.ok) throw new Error("Could not fetch archives list");
+            const listFilename = currentMarket === 'us' ? 'archive_list.json' : 'archive_list_tw.json';
+            const response = await fetch(listFilename);
+            if (!response.ok) throw new Error(`Could not fetch ${listFilename}`);
             
             const archives = await response.json();
             populateDateSelect(archives);
@@ -131,9 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error("Initialization error:", error);
             reportTitle.textContent = "資料庫加載失敗";
-            analysisText.textContent = "無法從伺服器取得美股聲報資料庫，請確認 JSON 檔案是否存在。";
+            analysisText.textContent = "無法從伺服器取得美股/台股聲報資料庫，請確認 JSON 檔案是否存在。";
             flowText.textContent = "";
             adviceText.textContent = "";
+            recommendText.textContent = "";
         }
     }
 
@@ -150,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         archives.forEach(item => {
             const opt = document.createElement('option');
             opt.value = item.date;
-            opt.textContent = `${item.date} (${item.title || '美股動態'})`;
+            opt.textContent = `${item.date} (${item.title || (currentMarket === 'us' ? '美股動態' : '台股動態')})`;
             dateSelect.appendChild(opt);
         });
     }
@@ -158,12 +172,15 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadReport(date) {
         showLoadingState();
         
-        let url = 'latest.json';
-        let audioUrl = 'latest.mp3';
+        let url = '';
+        let audioUrl = '';
         
-        if (date !== 'latest') {
-            url = `archive/${date}.json`;
-            audioUrl = `archive/${date}.mp3`;
+        if (currentMarket === 'us') {
+            url = date === 'latest' ? 'latest.json' : `archive/${date}.json`;
+            audioUrl = date === 'latest' ? 'latest.mp3' : `archive/${date}.mp3`;
+        } else {
+            url = date === 'latest' ? 'latest_tw.json' : `archive/tw_${date}.json`;
+            audioUrl = date === 'latest' ? 'latest_tw.mp3' : `archive/tw_${date}.mp3`;
         }
 
         // Cache busting for latest reports to ensure freshness
@@ -179,13 +196,33 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             currentReportData = data;
             
-            // Update Text Content
-            reportTitle.textContent = data.title || `${data.date} 美股每日聲報`;
-            reportDate.innerHTML = `<i class="fa-regular fa-clock"></i> 發表日期：${data.date}`;
+            // Update UI Titles and Layout based on market
+            if (currentMarket === 'us') {
+                cardRecommend.style.display = 'none';
+                titleAnalysis.innerHTML = '<i class="fa-solid fa-chart-pie"></i> 股市與產業分析 (Stock & Industry Analysis)';
+                titleFlow.innerHTML = '<i class="fa-solid fa-money-bill-transfer"></i> 資金流向 (Fund Flow)';
+                titleAdvice.innerHTML = '<i class="fa-solid fa-gem"></i> 長線投資方向建議 (Long-term Advice)';
+                
+                reportTitle.textContent = data.title || `${data.date} 美股每日聲報`;
+                
+                analysisText.innerHTML = formatMarkdown(data.written_report.stock_analysis);
+                flowText.innerHTML = formatMarkdown(data.written_report.fund_flow);
+                adviceText.innerHTML = formatMarkdown(data.written_report.investment_advice);
+            } else {
+                cardRecommend.style.display = 'block';
+                titleAnalysis.innerHTML = '<i class="fa-solid fa-chart-line"></i> 股市行情 (Market Trend)';
+                titleFlow.innerHTML = '<i class="fa-solid fa-chart-pie"></i> 產業分析 (Industry Analysis)';
+                titleAdvice.innerHTML = '<i class="fa-solid fa-money-bill-transfer"></i> 資金流向 (Fund Flow)';
+                
+                reportTitle.textContent = data.title || `${data.date} 台股焦點分析`;
+                
+                analysisText.innerHTML = formatMarkdown(data.written_report.stock_market);
+                flowText.innerHTML = formatMarkdown(data.written_report.industry_analysis);
+                adviceText.innerHTML = formatMarkdown(data.written_report.fund_flow);
+                recommendText.innerHTML = formatMarkdown(data.written_report.stock_recommendations);
+            }
             
-            analysisText.innerHTML = formatMarkdown(data.written_report.stock_analysis);
-            flowText.innerHTML = formatMarkdown(data.written_report.fund_flow);
-            adviceText.innerHTML = formatMarkdown(data.written_report.investment_advice);
+            reportDate.innerHTML = `<i class="fa-regular fa-clock"></i> 發表日期：${data.date}`;
 
             // Populate News
             populateNewsList(data.investing_news || []);
@@ -208,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
             analysisText.textContent = `無法加載日期為 ${date} 的報告。請確認該報告的資料檔案是否已生成。`;
             flowText.textContent = "";
             adviceText.textContent = "";
+            recommendText.textContent = "";
             newsListContainer.innerHTML = '<div class="news-loading"><i class="fa-solid fa-circle-exclamation"></i> 無法載入當日頭條新聞</div>';
             newsCountBadge.textContent = '0 則';
         }
@@ -218,6 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
         analysisText.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> 載入報告內容中...';
         flowText.innerHTML = "";
         adviceText.innerHTML = "";
+        recommendText.innerHTML = "";
         newsListContainer.innerHTML = '<div class="news-loading"><i class="fa-solid fa-circle-notch fa-spin"></i> 載入新聞中...</div>';
     }
 
@@ -299,6 +338,38 @@ document.addEventListener('DOMContentLoaded', () => {
     dateSelect.addEventListener('change', (e) => {
         loadReport(e.target.value);
     });
+
+    // Handle Market Tab Switching
+    function switchMarket(market) {
+        if (currentMarket === market) return;
+        
+        currentMarket = market;
+        
+        // Toggle Active Classes and header text
+        if (currentMarket === 'us') {
+            tabUs.classList.add('active');
+            tabTw.classList.remove('active');
+            appLogoTitle.textContent = '美股每日聲報';
+            appLogoSubtitle.textContent = 'US Market Daily Audio Insight';
+        } else {
+            tabTw.classList.add('active');
+            tabUs.classList.remove('active');
+            appLogoTitle.textContent = '台股每日分析';
+            appLogoSubtitle.textContent = 'Taiwan Market Daily Analysis';
+        }
+        
+        // Stop current audio playback
+        audio.pause();
+        isPlaying = false;
+        btnPlayPause.innerHTML = '<i class="fa-solid fa-play"></i>';
+        visualizer.classList.remove('playing');
+        
+        // Re-initialize app for the selected market
+        initApp();
+    }
+
+    tabUs.addEventListener('click', () => switchMarket('us'));
+    tabTw.addEventListener('click', () => switchMarket('tw'));
 
     // Initialize App
     initApp();

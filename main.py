@@ -41,6 +41,16 @@ os.makedirs(TEMP_DIR, exist_ok=True)
 
 # --- Helper Functions ---
 
+def clean_json_text(text):
+    """Extract the first valid JSON object from a string, ignoring markdown code blocks or trailing notes."""
+    text = text.strip()
+    start = text.find('{')
+    end = text.rfind('}')
+    if start != -1 and end != -1:
+        text = text[start:end+1]
+    return text
+
+
 def check_ffmpeg():
     """Check if ffmpeg is available in the system PATH."""
     try:
@@ -126,10 +136,11 @@ def fetch_youtube_videos(query_or_url, limit=5):
 
 
 def download_subtitles(video_id, temp_dir):
-    """Download automatic subtitles for a video and return the file path."""
+    """Download subtitles (both uploader-provided and automatic) for a video and return the file path."""
     video_url = f"https://www.youtube.com/watch?v={video_id}"
     outtmpl = os.path.join(temp_dir, f"sub_{video_id}")
     ydl_opts = {
+        'writesubtitles': True,
         'writeautosub': True,
         'skip_download': True,
         'subtitlesformat': 'vtt',
@@ -137,18 +148,20 @@ def download_subtitles(video_id, temp_dir):
         'quiet': True,
         'no_warnings': True,
         'ignoreerrors': True,
+        'subtitleslangs': ['zh-TW', 'zh-Hant', 'zh', 'en', 'all'],
     }
     print(f"Downloading subtitles for video: {video_id}")
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         try:
             ydl.download([video_url])
-            # yt-dlp appends the language code, e.g. sub_VIDEO_ID.en.vtt or sub_VIDEO_ID.en-US.vtt
+            # yt-dlp appends the language code, e.g. sub_VIDEO_ID.en.vtt or sub_VIDEO_ID.zh-TW.vtt
             for f in os.listdir(temp_dir):
                 if f.startswith(f"sub_{video_id}") and f.endswith(".vtt"):
                     return os.path.join(temp_dir, f)
         except Exception as e:
             print(f"Subtitles not available or download failed for {video_id}: {e}")
     return None
+
 
 
 def get_all_scraped_videos_data():
@@ -197,7 +210,81 @@ def get_all_scraped_videos_data():
     return scraped_data
 
 
+def get_taiwan_shows_data():
+    """Fetch transcripts and info for '錢線百分百' and '股市現場' filtered by the latest upload date."""
+    scraped_data = []
+    queries = {
+        '錢線百分百': 'ytsearch15:錢線百分百',
+        '股市現場': 'ytsearch15:股市現場'
+    }
+    
+    for show_name, query in queries.items():
+        print(f"\n--- Scraping Taiwan Show: {show_name} ---")
+        ydl_opts = {
+            'extract_flat': True,
+            'playlistend': 15,
+            'quiet': True,
+            'no_warnings': True,
+        }
+        
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            try:
+                info = ydl.extract_info(query, download=False)
+                if not info or 'entries' not in info:
+                    print(f"No videos found for show: {show_name}")
+                    continue
+                
+                entries = [e for e in info['entries'] if e]
+                
+                # Extract dates from titles
+                dates = []
+                for e in entries:
+                    title = e.get('title', '')
+                    found_dates = re.findall(r'\d{8}', title)
+                    if found_dates:
+                        dates.extend(found_dates)
+                
+                if not dates:
+                    print(f"No dates found in video titles for show: {show_name}")
+                    # If no dates found, fallback to top 3 videos
+                    matched_videos = entries[:3]
+                else:
+                    latest_date = max(dates)
+                    print(f"Detected latest show date for {show_name}: {latest_date}")
+                    
+                    # Filter videos matching this date
+                    matched_videos = []
+                    for e in entries:
+                        title = e.get('title', '')
+                        if latest_date in title:
+                            matched_videos.append(e)
+                            
+                    # Prioritize full videos ("整版" or "整集") if present to avoid duplication
+                    has_full = any("整版" in e.get('title', '') or "整集" in e.get('title', '') for e in matched_videos)
+                    if has_full:
+                        matched_videos = [e for e in matched_videos if "整版" in e.get('title', '') or "整集" in e.get('title', '')]
+                        print(f"Prioritized full episode segments for date {latest_date}")
+                
+                print(f"Processing {len(matched_videos)} videos for {show_name}:")
+                for e in matched_videos:
+                    video_id = e.get('id')
+                    title = e.get('title', '')
+                    sub_file = download_subtitles(video_id, TEMP_DIR)
+                    transcript = clean_vtt_subtitles(sub_file) if sub_file else ""
+                    scraped_data.append({
+                        'source': show_name,
+                        'title': title,
+                        'description': e.get('description', ''),
+                        'transcript': transcript
+                    })
+            except Exception as e:
+                print(f"Error scraping Taiwan show {show_name}: {e}")
+                
+    return scraped_data
+
+
 # --- Investing.com RSS Feed Scraper ---
+
 
 def fetch_investing_news():
     """Parse Investing.com RSS feeds and extract news item headlines and links."""
@@ -324,7 +411,7 @@ def generate_insights_and_podcast(scraped_videos, news_items):
             prompt,
             generation_config={"response_mime_type": "application/json"}
         )
-        data = json.loads(response.text)
+        data = json.loads(clean_json_text(response.text))
         print("Gemini response parsed successfully!")
         return data
     except Exception as e:
@@ -344,7 +431,108 @@ def generate_insights_and_podcast(scraped_videos, news_items):
         }
 
 
+def generate_taiwan_insights_and_podcast(scraped_videos, news_items):
+    """Aggregate Taiwan data and call Gemini API to generate the Taiwan stock report and dialogue JSON."""
+    print("\n--- Sending Taiwan request to Google Gemini API ---")
+    
+    # Format YouTube data for prompt
+    videos_text = ""
+    for idx, v in enumerate(scraped_videos):
+        videos_text += f"\n【來源: {v['source']}】\n"
+        videos_text += f"標題: {v['title']}\n"
+        desc = v.get('description') or ""
+        videos_text += f"描述: {desc[:300]}...\n"
+        if v['transcript']:
+            videos_text += f"字幕全文摘要: {v['transcript'][:1500]}...\n"
+        else:
+            videos_text += "（無字幕，以標題和描述分析）\n"
+        videos_text += "-" * 30
+        
+    # Format News data for prompt
+    news_text = ""
+    for idx, n in enumerate(news_items):
+        news_text += f"- {n['title']} (來源: {n['author']}, 時間: {n['pubDate']})\n"
+
+    # Assemble complete prompt
+    prompt = f"""
+你是一個資深的台股分析與產業專家，同時也是一位極具創意與人氣的 Podcast 製作人。
+請仔細閱讀並整合以下收集到的當日/前一日最新台股市場資訊（包含非凡錢線百分百和股市現場節目音軌字幕摘要、Investing.com 當日即時財經新聞）：
+
+【YouTube 台股節目字幕/摘要】
+{videos_text}
+
+【Investing.com 財經頭條】
+{news_text}
+
+=========================================
+
+請根據上述數據，產出一個結構化的 JSON 內容，必須嚴格符合以下格式與要求，且不要有額外的包裹文字或 HTML tags：
+
+【輸出 JSON 結構需求】
+{{
+  "title": "今日台股焦點與深度聲報",
+  "written_report": {{
+    "stock_market": "股市行情內容（繁體中文，格式請使用 Markdown。需包含加權指數走勢、大盤支撐壓力、櫃買指數及主要權值股如台積電、聯發科、鴻海等之表現與技術分析）",
+    "industry_analysis": "產業分析內容（繁體中文，格式請使用 Markdown。需深入分析今日強勢或熱門族群，如半導體、AI伺服器/BBU/CPO、航運、綠能、金融等產業趨勢與利多）",
+    "fund_flow": "資金流向內容（繁體中文，格式請使用 Markdown。需分析外資、投信、自營商三大法人買賣超動向、融資融券變化、市場成交量能變化與避險情緒討論）",
+    "stock_recommendations": "長、短線個股推薦（繁體中文，格式請使用 Markdown。需具體列出適合長線佈局與短線操作的潛力個股，並簡要分析其基本面利基、技術面進出場點位與防守停損位置）"
+  }},
+  "podcast_script": [
+    {{
+      "speaker": "HsiaoChen",
+      "text": "主持人的話（繁體中文，台灣腔，口語化，例如：『哈囉大家，歡迎收聽今日的台股焦點聲報。我是 HsiaoChen。』）"
+    }},
+    {{
+      "speaker": "YunJhe",
+      "text": "專家的話（繁體中文，台灣腔，口語化，例如：『嗨，大家好，我是 YunJhe。今天台股加權指數真的是驚心動魄，特別是台積電...』）"
+    }}
+    // 依此類推，設計 12 - 18 輪的男女對話，深入且生動地討論上述書面分析中的核心台股資訊。
+    // 每段話長度大約 60-150 字，以保持談話順暢度，整體對話長度約在 1200 到 1800 字之間。
+  ]
+}}
+
+【關鍵細節要求】
+1. **繁體中文與台灣常用財經用語**：報告和對話中請務必使用台灣的財經與口語用語。例如：『加權指數』、『櫃買指數』、『法人買賣超』、『季線/半年線/年線』、『除權息』、『個股推薦』。
+2. **台灣腔口語發音語助詞**：對話必須像真實的台灣人對話，自然融入語助詞，如『對啊』、『沒錯』、『我覺得說...』、『像是...』、『這樣子』、『真的耶』、『吼』。
+3. **表情停頓與語調引導（極重要）**：對話文字中請適當多使用標點符號（如逗號『，』、頓號『、』、省略號『……』或空格）來引導語音引擎產生自然停頓，避免語氣聽起來過於機械化。
+4. **角色名稱限制**：對話劇本的 `speaker` 欄位值僅能為 `"HsiaoChen"` (代表女聲主播) 與 `"YunJhe"` (代表男聲專家)。
+"""
+
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        print("Error: GEMINI_API_KEY environment variable is missing!")
+        sys.exit(1)
+        
+    genai.configure(api_key=api_key)
+    model = genai.GenerativeModel("gemini-3.5-flash")
+    
+    try:
+        response = model.generate_content(
+            prompt,
+            generation_config={"response_mime_type": "application/json"}
+        )
+        data = json.loads(clean_json_text(response.text))
+        print("Gemini Taiwan response parsed successfully!")
+        return data
+    except Exception as e:
+        print(f"Error calling or parsing Gemini API for Taiwan: {e}")
+        return {
+            "title": f"台股每日分析 ({datetime.now().strftime('%Y-%m-%d')})",
+            "written_report": {
+                "stock_market": "台股行情分析生成暫時失敗，請稍候重試或檢查 API 設定。",
+                "industry_analysis": "目前無產業分析資料。",
+                "fund_flow": "目前無三大法人資金流動資料。",
+                "stock_recommendations": "目前無個股推薦。"
+            },
+            "podcast_script": [
+                {"speaker": "HsiaoChen", "text": "不好意思，今天我們的台股 AI 生成系統遇到了一些問題，請明天再收聽我們的精彩解析！"},
+                {"speaker": "YunJhe", "text": "對啊，大家先看看相關財經新聞，祝大家操作順利！"}
+            ]
+        }
+
+
 # --- Edge TTS Audio Generator Mod ---
+
 
 async def generate_voice_chunk(text, voice, output_path):
     """Async voice generator using edge-tts, optimized with a slight speed slowdown for natural pacing."""
@@ -462,9 +650,9 @@ def clean_temp_dir():
     os.makedirs(TEMP_DIR, exist_ok=True)
 
 
-def update_archive_list(date_str, title):
-    """Add new report date to docs/archive_list.json in front, keeping top 30 unique items."""
-    list_path = os.path.join(DOCS_DIR, "archive_list.json")
+def update_archive_list(date_str, title, filename="archive_list.json"):
+    """Add new report date to docs/<filename> in front, keeping top 30 unique items."""
+    list_path = os.path.join(DOCS_DIR, filename)
     archives = []
     
     if os.path.exists(list_path):
@@ -487,79 +675,126 @@ def update_archive_list(date_str, title):
     
     with open(list_path, 'w', encoding='utf-8') as f:
         json.dump(archives, f, ensure_ascii=False, indent=2)
-    print("Archive registry list updated.")
+    print(f"Archive registry list {filename} updated.")
 
 
 def main():
     start_time = datetime.now()
     print(f"Pipeline started at: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
     
-    # 1. Fetch Investing.com headlines
+    # Common: Fetch Investing.com headlines
     news_items = fetch_investing_news()
-    
-    # 2. Fetch YouTube transcripts and details
-    scraped_videos = get_all_scraped_videos_data()
-    
-    # 3. Call Gemini to generate Report & Dialogue Script
-    report_data = generate_insights_and_podcast(scraped_videos, news_items)
-    
-    # Add date and investing news items back to JSON data
     date_str = datetime.now().strftime("%Y-%m-%d")
-    report_data['date'] = date_str
-    report_data['investing_news'] = news_items
     
-    # 4. Generate audio podcast file
-    audio_generated = False
-    
-    clean_temp_dir()
+    # ------------------ US Market Pipeline ------------------
+    print("\n=================== STARTING US MARKET PIPELINE ===================")
     try:
-        # Generate speech files (run async loop)
-        temp_files = asyncio.run(generate_all_voices(report_data.get('podcast_script', []), TEMP_DIR))
+        # Fetch US YouTube transcripts
+        scraped_us_videos = get_all_scraped_videos_data()
         
-        # Destination audio paths
-        latest_mp3 = os.path.join(DOCS_DIR, "latest.mp3")
-        archive_mp3 = os.path.join(ARCHIVE_DIR, f"{date_str}.mp3")
+        # Call Gemini to generate US Report & Dialogue Script
+        us_report_data = generate_insights_and_podcast(scraped_us_videos, news_items)
+        us_report_data['date'] = date_str
+        us_report_data['investing_news'] = news_items
         
-        # Merge (uses FFmpeg if available, otherwise falls back to binary concat)
-        audio_generated = merge_audio_files(temp_files, TEMP_DIR, latest_mp3)
-        if audio_generated:
-            # Copy to archive folder
-            import shutil
-            shutil.copy(latest_mp3, archive_mp3)
-            print(f"Archived audio saved to: {archive_mp3}")
-    except Exception as e:
-        print(f"Error generating audio: {e}")
-    finally:
-        # Clean up files inside TEMP_DIR
+        # Generate US audio podcast file
+        us_audio_generated = False
         clean_temp_dir()
-
-    # If audio generation failed, create a dummy or warning file so pages do not break
-    latest_mp3 = os.path.join(DOCS_DIR, "latest.mp3")
-    if not audio_generated and not os.path.exists(latest_mp3):
-        # Create empty file or log error
-        with open(latest_mp3, 'wb') as f:
-            f.write(b'')
+        try:
+            temp_files = asyncio.run(generate_all_voices(us_report_data.get('podcast_script', []), TEMP_DIR))
+            latest_mp3 = os.path.join(DOCS_DIR, "latest.mp3")
+            archive_mp3 = os.path.join(ARCHIVE_DIR, f"{date_str}.mp3")
             
-    # 5. Write reports JSON to docs/
-    # Latest report json
-    latest_json_path = os.path.join(DOCS_DIR, "latest.json")
-    with open(latest_json_path, 'w', encoding='utf-8') as f:
-        json.dump(report_data, f, ensure_ascii=False, indent=2)
-    print(f"Latest report data saved to: {latest_json_path}")
-    
-    # Archive report json
-    archive_json_path = os.path.join(ARCHIVE_DIR, f"{date_str}.json")
-    with open(archive_json_path, 'w', encoding='utf-8') as f:
-        json.dump(report_data, f, ensure_ascii=False, indent=2)
-    print(f"Archived report data saved to: {archive_json_path}")
-    
-    # 6. Update list index
-    update_archive_list(date_str, report_data.get('title', '美股動態焦點'))
-    
+            us_audio_generated = merge_audio_files(temp_files, TEMP_DIR, latest_mp3)
+            if us_audio_generated:
+                import shutil
+                shutil.copy(latest_mp3, archive_mp3)
+                print(f"Archived US audio saved to: {archive_mp3}")
+        except Exception as e:
+            print(f"Error generating US audio: {e}")
+        finally:
+            clean_temp_dir()
+            
+        # Ensure latest.mp3 exists
+        latest_mp3 = os.path.join(DOCS_DIR, "latest.mp3")
+        if not us_audio_generated and not os.path.exists(latest_mp3):
+            with open(latest_mp3, 'wb') as f:
+                f.write(b'')
+                
+        # Write US JSON report
+        latest_json_path = os.path.join(DOCS_DIR, "latest.json")
+        with open(latest_json_path, 'w', encoding='utf-8') as f:
+            json.dump(us_report_data, f, ensure_ascii=False, indent=2)
+        print(f"Latest US report data saved to: {latest_json_path}")
+        
+        archive_json_path = os.path.join(ARCHIVE_DIR, f"{date_str}.json")
+        with open(archive_json_path, 'w', encoding='utf-8') as f:
+            json.dump(us_report_data, f, ensure_ascii=False, indent=2)
+        print(f"Archived US report data saved to: {archive_json_path}")
+        
+        # Update US archive list
+        update_archive_list(date_str, us_report_data.get('title', '美股動態焦點'), "archive_list.json")
+        
+    except Exception as e:
+        print(f"❌ Error in US Market Pipeline: {e}")
+        
+    # ------------------ Taiwan Market Pipeline ------------------
+    print("\n=================== STARTING TAIWAN MARKET PIPELINE ===================")
+    try:
+        # Fetch Taiwan YouTube transcripts
+        scraped_tw_videos = get_taiwan_shows_data()
+        
+        # Call Gemini to generate Taiwan Report & Dialogue Script
+        tw_report_data = generate_taiwan_insights_and_podcast(scraped_tw_videos, news_items)
+        tw_report_data['date'] = date_str
+        tw_report_data['investing_news'] = news_items
+        
+        # Generate Taiwan audio podcast file
+        tw_audio_generated = False
+        clean_temp_dir()
+        try:
+            temp_files = asyncio.run(generate_all_voices(tw_report_data.get('podcast_script', []), TEMP_DIR))
+            latest_tw_mp3 = os.path.join(DOCS_DIR, "latest_tw.mp3")
+            archive_tw_mp3 = os.path.join(ARCHIVE_DIR, f"tw_{date_str}.mp3")
+            
+            tw_audio_generated = merge_audio_files(temp_files, TEMP_DIR, latest_tw_mp3)
+            if tw_audio_generated:
+                import shutil
+                shutil.copy(latest_tw_mp3, archive_tw_mp3)
+                print(f"Archived Taiwan audio saved to: {archive_tw_mp3}")
+        except Exception as e:
+            print(f"Error generating Taiwan audio: {e}")
+        finally:
+            clean_temp_dir()
+            
+        # Ensure latest_tw.mp3 exists
+        latest_tw_mp3 = os.path.join(DOCS_DIR, "latest_tw.mp3")
+        if not tw_audio_generated and not os.path.exists(latest_tw_mp3):
+            with open(latest_tw_mp3, 'wb') as f:
+                f.write(b'')
+                
+        # Write Taiwan JSON report
+        latest_tw_json_path = os.path.join(DOCS_DIR, "latest_tw.json")
+        with open(latest_tw_json_path, 'w', encoding='utf-8') as f:
+            json.dump(tw_report_data, f, ensure_ascii=False, indent=2)
+        print(f"Latest Taiwan report data saved to: {latest_tw_json_path}")
+        
+        archive_tw_json_path = os.path.join(ARCHIVE_DIR, f"tw_{date_str}.json")
+        with open(archive_tw_json_path, 'w', encoding='utf-8') as f:
+            json.dump(tw_report_data, f, ensure_ascii=False, indent=2)
+        print(f"Archived Taiwan report data saved to: {archive_tw_json_path}")
+        
+        # Update Taiwan archive list
+        update_archive_list(date_str, tw_report_data.get('title', '台股焦點分析'), "archive_list_tw.json")
+        
+    except Exception as e:
+        print(f"❌ Error in Taiwan Market Pipeline: {e}")
+        
     end_time = datetime.now()
     duration = (end_time - start_time).total_seconds()
-    print(f"Pipeline finished successfully in {duration:.1f} seconds at {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"\nPipeline finished successfully in {duration:.1f} seconds at {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
 
 if __name__ == '__main__':
     main()
+

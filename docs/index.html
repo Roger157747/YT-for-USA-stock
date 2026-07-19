@@ -20,10 +20,20 @@
             <div class="logo">
                 <i class="fa-solid fa-chart-line-up logo-icon"></i>
                 <div class="logo-text">
-                    <h1>美股每日聲報</h1>
-                    <span>US Market Daily Audio Insight</span>
+                    <h1 id="app-logo-title">美股每日聲報</h1>
+                    <span id="app-logo-subtitle">US Market Daily Audio Insight</span>
                 </div>
             </div>
+            
+            <!-- Market Tabs Selector -->
+            <nav class="market-tabs">
+                <button class="tab-btn active" id="tab-us" data-market="us">
+                    <i class="fa-solid fa-flag-usa"></i> 美股聲報
+                </button>
+                <button class="tab-btn" id="tab-tw" data-market="tw">
+                    <i class="fa-solid fa-chart-line"></i> 台股分析
+                </button>
+            </nav>
             
             <div class="date-selector-wrapper">
                 <label for="date-select"><i class="fa-regular fa-calendar"></i> 選擇日期：</label>
@@ -104,7 +114,7 @@
                     <div class="glass-card report-card" id="card-analysis">
                         <div class="card-title-bar analysis-theme">
                             <i class="fa-solid fa-chart-pie"></i>
-                            <h3>股市與產業分析 (Stock & Industry Analysis)</h3>
+                            <h3 id="title-analysis">股市與產業分析 (Stock & Industry Analysis)</h3>
                         </div>
                         <div class="card-content markdown-body" id="analysis-text">
                             讀取中...
@@ -114,7 +124,7 @@
                     <div class="glass-card report-card" id="card-flow">
                         <div class="card-title-bar flow-theme">
                             <i class="fa-solid fa-money-bill-transfer"></i>
-                            <h3>資金流向 (Fund Flow)</h3>
+                            <h3 id="title-flow">資金流向 (Fund Flow)</h3>
                         </div>
                         <div class="card-content markdown-body" id="flow-text">
                             讀取中...
@@ -124,9 +134,20 @@
                     <div class="glass-card report-card" id="card-advice">
                         <div class="card-title-bar advice-theme">
                             <i class="fa-solid fa-gem"></i>
-                            <h3>長線投資方向建議 (Long-term Advice)</h3>
+                            <h3 id="title-advice">長線投資方向建議 (Long-term Advice)</h3>
                         </div>
                         <div class="card-content markdown-body" id="advice-text">
+                            讀取中...
+                        </div>
+                    </div>
+
+                    <!-- Taiwan Specific: Stock Recommendations Card -->
+                    <div class="glass-card report-card" id="card-recommend" style="display: none;">
+                        <div class="card-title-bar recommend-theme">
+                            <i class="fa-solid fa-star"></i>
+                            <h3 id="title-recommend">長、短線個股推薦 (Stock Recommendations)</h3>
+                        </div>
+                        <div class="card-content markdown-body" id="recommend-text">
                             讀取中...
                         </div>
                     </div>

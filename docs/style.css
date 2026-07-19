@@ -631,3 +631,55 @@ body {
         order: 3;
     }
 }
+
+/* Market Tabs Styling */
+.market-tabs {
+    display: flex;
+    gap: 8px;
+    background: rgba(10, 12, 22, 0.6);
+    padding: 4px;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(8px);
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+.tab-btn i {
+    font-size: 0.95rem;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    color: #ffffff;
+    background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.25);
+}
+
+/* Recommend Theme for Taiwan Stocks */
+.recommend-theme {
+    background: rgba(236, 72, 153, 0.08);
+    color: #f472b6;
+}
+.recommend-theme i {
+    color: #f472b6;
+}
+
