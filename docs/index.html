@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美股每日焦點 & Podcast 聲報 Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Header -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-chart-line-up logo-icon"></i>
+                <div class="logo-text">
+                    <h1>美股每日聲報</h1>
+                    <span>US Market Daily Audio Insight</span>
+                </div>
+            </div>
+            
+            <div class="date-selector-wrapper">
+                <label for="date-select"><i class="fa-regular fa-calendar"></i> 選擇日期：</label>
+                <div class="custom-select">
+                    <select id="date-select">
+                        <option value="latest">載入中...</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down select-arrow"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Layout -->
+        <main class="dashboard-grid">
+            <!-- Left Side: Podcast Player & Report -->
+            <section class="main-content">
+                <!-- Custom Audio Player Card -->
+                <div class="glass-card player-card">
+                    <div class="player-header">
+                        <span class="badge"><i class="fa-solid fa-radio"></i> AI Podcast 聲報</span>
+                        <h2 id="report-title">讀取中...</h2>
+                        <p class="player-meta">
+                            <span id="report-date"><i class="fa-regular fa-clock"></i> --</span>
+                            <span class="speaker-info"><i class="fa-solid fa-user-group"></i> 雙主播：小陳 (女) & 阿哲 (男)</span>
+                        </p>
+                    </div>
+
+                    <div class="player-body">
+                        <!-- Custom Audio Element -->
+                        <audio id="market-audio" preload="metadata"></audio>
+                        
+                        <div class="player-controls-row">
+                            <button id="btn-play-pause" class="btn-play" title="播放/暫停">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                            
+                            <div class="progress-container">
+                                <span id="current-time" class="time-label">0:00</span>
+                                <div id="progress-bar-wrapper" class="progress-bar-wrapper">
+                                    <div id="progress-bar" class="progress-bar"></div>
+                                    <div id="progress-handle" class="progress-handle"></div>
+                                </div>
+                                <span id="duration-time" class="time-label">0:00</span>
+                            </div>
+                            
+                            <div class="volume-container">
+                                <button id="btn-mute" class="btn-icon" title="靜音">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1" class="volume-slider">
+                            </div>
+                        </div>
+
+                        <!-- Audio Visualizer Animation -->
+                        <div class="visualizer-container" id="visualizer">
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                            <div class="visualizer-bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Written Report Cards -->
+                <div class="report-section">
+                    <!-- Tab Content or Stacked Cards -->
+                    <div class="glass-card report-card" id="card-analysis">
+                        <div class="card-title-bar analysis-theme">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <h3>股市與產業分析 (Stock & Industry Analysis)</h3>
+                        </div>
+                        <div class="card-content markdown-body" id="analysis-text">
+                            讀取中...
+                        </div>
+                    </div>
+
+                    <div class="glass-card report-card" id="card-flow">
+                        <div class="card-title-bar flow-theme">
+                            <i class="fa-solid fa-money-bill-transfer"></i>
+                            <h3>資金流向 (Fund Flow)</h3>
+                        </div>
+                        <div class="card-content markdown-body" id="flow-text">
+                            讀取中...
+                        </div>
+                    </div>
+
+                    <div class="glass-card report-card" id="card-advice">
+                        <div class="card-title-bar advice-theme">
+                            <i class="fa-solid fa-gem"></i>
+                            <h3>長線投資方向建議 (Long-term Advice)</h3>
+                        </div>
+                        <div class="card-content markdown-body" id="advice-text">
+                            讀取中...
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: News Headlines -->
+            <aside class="side-content">
+                <div class="glass-card news-card">
+                    <div class="side-card-header">
+                        <h3><i class="fa-solid fa-newspaper"></i> Investing.com 財經頭條</h3>
+                        <span class="badge badge-outline" id="news-count">0 則</span>
+                    </div>
+                    <div class="news-list" id="news-list-container">
+                        <!-- News items will be loaded dynamically here -->
+                        <div class="news-loading">
+                            <i class="fa-solid fa-circle-notch fa-spin"></i> 載入新聞中...
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <footer class="app-footer">
+            <p>© 2026 美股自動聲報系統 | 核心基於 Google Gemini 1.5 Flash 與 GitHub Actions | 本資訊僅供參考，不代表投資建議。</p>
+        </footer>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
