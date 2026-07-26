@@ -1,0 +1,221 @@
+{
+  "title": "今日美股動態與深度聲報",
+  "written_report": {
+    "stock_analysis": "### 今日美股盤面與重點板塊分析\n\n今日美股市場呈現顯著的分化態勢。受大型科技股財報出爐後，市場對 **AI 資本支出（Capex）回報率** 的疑慮加深，加上國際油價強勢突破每桶 $100 美元大關，壓抑了成長股整體的估值空間，導致美股主要指數承壓收黑。然而，盤面仍不乏亮點：\n\n1. **AI 基礎建設與封裝需求依續強勁**：\n   * **安靠科技（Amkor Technology, AMKR）** 與輝達（NVIDIA）達成一項高達 15 億美元的封裝合作協議，股價應聲暴漲 16%。這顯示出雖然終端應用端面臨檢視，但半導體上游、先進封裝等硬體供應鏈的基本面依舊極具支撐力。\n   * **甲骨文（Oracle, ORCL）** 斬獲美國國防部（原 War Department 相關職能延伸）高達 70 億美元的軟體合約，激勵其股價逆勢走高。政府端與企業端對於雲端安全及資料庫升級的需求仍處於爆發期。\n\n2. **國防與航太板塊展現防禦屬性**：\n   * **通用動力（General Dynamics, GD）** 獲得美國海軍 1.27 億美元的潛艦合約，**L3Harris（LHX）** 的高層訪談亦證實國防工業訂單能見度極高。在地緣政治風險未退的背景下，軍工股成為避險資金的重要避風港。\n   * **Anthropic 與五角大廈的衝突** 成為市場焦點，這起事件不僅牽涉國家安全，更直接影響了整條 AI 技術棧（Tech Stack）在政府及軍工端的部署速度與合規門檻。\n\n3. **能源與公用事業板塊**：\n   * 在原油價格飆上 $100 美元的帶動下，傳統能源股表現活躍。然而，天然氣因庫存報告增幅高於預期，氣價承壓，天然氣巨頭 **EQT** 執行長 Toby Rice 在受訪時強調，雖然短期庫存波動，但長期向天然氣轉型的能源結構大趨勢並未改變。",
+    "fund_flow": "### 資金流向與市場情緒剖析\n\n1. **避險情緒升溫與類股輪動**：\n   由於 Alphabet、Tesla 等科技巨頭的財報將 AI 研發與基礎設施的龐大支出推向聚光燈下（AI Capex Under the Microscope），市場資金出現明顯的「科技股獲利了結，流向防禦性板塊」的輪動跡象。資金流入電信、能源、國防及具備穩定合約收益的軟體龍頭（如 Oracle）。\n\n2. **就業市場強勁引發債市重估**：\n   最新公布的美國單週初領失業金人數驟降至 18.7 萬人，創下自 1969 年以來的最低紀錄！這項數據顯示美國勞動力市場依然極度緊繃。加上原油價格創下百元新高，通膨陰影再度浮現，迫使債券投資人重新審視美債在資產配置中的避險角色，長端債券殖利率面臨上行壓力。\n\n3. **加密貨幣市場的資金韌性**：\n   儘管科技股走弱，SkyBridge 創辦人 Anthony Scaramucci 與 Fundstrat 的 Tom Lee 對比特幣（Bitcoin）前景依然樂觀，預期比特幣在經歷近期盤整後，年底前仍有機會挑戰歷史新高。資金在數位資產領域呈現「緩步墊高（Grinds Higher）」的結構，顯示高風險偏好的資金並未完全撤離市場，而是在尋找特定標的進行博弈。",
+    "investment_advice": "### 長線投資建議與配置策略\n\n1. **優化 AI 投資組合，由「純算力」轉向「基礎建設與應用落地」**：\n   市場目前對單純購買晶片的 AI Capex 開始產生審美疲勞。建議投資人將資金分散至具有實質業務落地支撐的標的。例如：掌握關鍵先進封裝技術的 **Amkor（AMKR）**，以及在政府與企業級市場擁有護城河的 **Oracle（ORCL）**。此外，**GE Vernova** 在綠能與電網基礎建設上的實力，也是 AI 算力背後不可或缺的電力來源。\n\n2. **增加防禦性與抗通膨資產配置**：\n   在原油價格維持高檔（$100美元附近）及就業市場緊繃的環境下，通膨具有黏性。建議配置一定比例的防禦型資產，如**通用動力（GD）**等受惠於政府國防預算的軍工巨頭，以及高殖利率的傳統能源龍頭。\n\n3. **密切觀望債券與黃金/比特幣的避險替代效應**：\n   傳統股債配置的負相關性正在減弱，投資人應適度引進另類資產（如黃金或小比例的比特幣）作為投資組合的防震墊。技術面上，建議在主要美股指數回測季線（60日均線）尋求支撐時，採取分批布局（Dollar-cost averaging）策略，避免單次追高風險。"
+  },
+  "podcast_script": [
+    {
+      "speaker": "HsiaoChen",
+      "text": "哈囉大家！歡迎收聽今日的美股焦點聲報。我是 HsiaoChen。今天的美股市場……哇，真的是非常精彩，但對一些手裡滿滿都是科技股的投資人來說，今天可能稍微有點驚心動魄。YunJhe，你怎麼看今天整體的市場氣氛呢？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "嗨，大家，我是 YunJhe。今天美股真的有種……嗯，山雨欲來的感覺。主要原因就是科技巨頭們的季報陸續出爐，大家突然開始拿著放大鏡，去檢視這些公司的 AI 資本支出，也就是所謂的 Capex 啦！大家都在問，花了幾百億，回報到底在哪裡？"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "對啊，像 Google、特斯拉還有 GE Vernova 的財報一出來，市場就好像被澆了一盆冷水。而且今天油價居然還飆到了每桶 100 美元！這對通膨來說……真的是壓力山大，也讓大盤整體表現有些沉悶。"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "沒錯，不過在這種比較悲觀的氛圍下，盤面上還是有幾個超級亮點喔！像是安靠科技 Amkor，今天股價直接暴漲了 16%！這背後就是因為他們拿到了輝達 15 億美元的先進封裝大單。這告訴我們，硬體和封裝的需求，依然是硬邦邦的在那裡。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "哇，16% 真的好誇張！另外一個讓我眼睛一亮的是甲骨文 Oracle。他們居然拿到了國防部高達 70 億美元的軟體合約耶！今天股價也是順勢沖高。看來……跟政府做生意，在這種時候反而是最穩健的保障呢。"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "真的！不只是甲骨文，今天通用動力也拿到海軍 1.27 億美元的合約。其實最近軍工防禦板塊的表現真的很強。像是 L3Harris 的財務長在 Closing Bell 的專訪也提到，他們的訂單能見度非常高。地緣政治的不確定性，反而成了這些軍工股最強的護城河。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "說到政府和科技的關係，最近 IBD 有一則新聞很有趣，就是 Anthropic 和五角大廈的衝突。YunJhe，你可以幫我們簡單開箱一下，這對整個 AI 產業鏈有什麼樣的影響嗎？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "這點非常關鍵。Anthropic 作為 AI 領頭羊之一，跟國防部的摩擦，本質上就是安全合規跟研發速度的拉扯。這意味著……未來的 AI 技術棧，也就是 Tech Stack，不能只看算力有多快，還要看誰能最先通過政府嚴格的安全審查。這會讓產業洗牌速度加快喔。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "天啊，這聽起來 AI 產業的競爭已經從「技術戰」延伸到「法規跟國安戰」了。那我們再來聊聊總體經濟。今天公布的失業金申請人數……居然只有 18.7 萬人，這是 1969 年以來的最低紀錄耶！這是不是代表經濟其實還是很好啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "對，這數據真的太驚人了！勞動力市場緊繃到不行。但這也是雙面刃啦，因為這會讓聯準會覺得，喔……通膨可能沒那麼容易降下來。加上我們剛剛提到的 100 美元油價，很多債券投資人現在都開始重新思考，債券在資產配置裡，是不是真的還能像以前那樣有效避險。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "怪不得大家都在調整資產配置。那除了股票跟債券，我們來看點不一樣的。今天加密貨幣方面，SkyBridge 的創辦人 Scaramucci，還有 Fundstrat 的 Tom Lee，兩位大佬都出來喊話，說比特幣雖然最近在盤整，但年底前還是有機會挑戰新高喔！"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "哈哈，Tom Lee 真的是萬年多頭。不過老實說，比特幣最近的走勢確實展現了韌性，有點像是「緩步墊高」的格局。在市場資金找不到高成長出口的時候，一部分風險資金確實會往這個方向流動。但大家還是要注意波動性啦。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "了解。那最後，在這種科技股承壓、通膨隱憂又浮現的關鍵時刻，YunJhe，你對我們聽眾朋友，有沒有什麼具體的投資建議呢？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "我覺得，第一步是「去蕪存菁」。不要再盲目追求那些只會講 AI 故事、卻拿不出營收的公司。像 Amkor 這種有實質封裝訂單，或者 Oracle 這種有政府長期合約支撐的標的，才是現在的王道。第二就是，資產配置裡一定要加入一些防禦性或抗通膨的資產，像是軍工和能源股，這樣才能睡得著覺。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "真的，在動盪的市場裡，能睡得著覺是最重要的！今天非常感謝 YunJhe 帶來這麼深度的分析。各位聽眾，記得在投資路上保持理性、做好資產配置喔。我們下次見啦，拜拜！"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "祝大家投資順利，我們下次見，拜拜！"
+    }
+  ],
+  "date": "2026-07-23",
+  "investing_news": [
+    {
+      "title": "Trinidad frees businessman and wife held over alleged plot against prime minister",
+      "link": "https://www.investing.com/news/stock-market-news/trinidad-frees-businessman-and-wife-held-over-alleged-plot-against-prime-minister-4810157",
+      "pubDate": "2026-07-23 21:42:52",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "General Dynamics wins $127M Navy submarine contract",
+      "link": "https://www.investing.com/news/stock-market-news/general-dynamics-wins-127m-navy-submarine-contract-93CH-4810153",
+      "pubDate": "2026-07-23 21:39:05",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Oracle lands $7 billion Department of War software contract, sending stock higher",
+      "link": "https://www.investing.com/news/stock-market-news/oracle-lands-7-billion-department-of-war-software-contract-sending-stock-higher-4810147",
+      "pubDate": "2026-07-23 21:35:04",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Paramount-Warner Bros deal paused through August 17, judge rules",
+      "link": "https://www.investing.com/news/stock-market-news/paramountwarner-bros-deal-paused-through-august-17-judge-rules-4810145",
+      "pubDate": "2026-07-23 21:30:47",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Mexico stocks lower at close of trade; S&P/BMV IPC down 1.54%",
+      "link": "https://www.investing.com/news/stock-market-news/mexico-stocks-lower-at-close-of-trade-spbmv-ipc-down-154-4810140",
+      "pubDate": "2026-07-23 21:30:04",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Amkor Technology surges 16% on $1.5B Nvidia deal",
+      "link": "https://www.investing.com/news/stock-market-news/amkor-technology-surges-16-on-15b-nvidia-deal-4810138",
+      "pubDate": "2026-07-23 21:25:34",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Colombia stocks lower at close of trade; COLCAP down 0.60%",
+      "link": "https://www.investing.com/news/stock-market-news/colombia-stocks-lower-at-close-of-trade-colcap-down-060-4810137",
+      "pubDate": "2026-07-23 21:25:03",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Wall St falls as tech earnings spark AI spending worries and oil hits $100",
+      "link": "https://www.investing.com/news/stock-market-news/wall-st-futures-ease-as-big-tech-results-revive-ai-spending-worries-oil-jumps-4808085",
+      "pubDate": "2026-07-23 21:24:51",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Trump to impose forced labor duties on Friday as temporary 10% US tariffs expire",
+      "link": "https://www.investing.com/news/economic-indicators/trump-to-impose-forced-labor-duties-on-friday-as-temporary-10-us-tariffs-expire-4810104",
+      "pubDate": "2026-07-23 21:12:38",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "US investors rethink bonds’ role as inflation reshapes portfolios",
+      "link": "https://www.investing.com/news/economic-indicators/analysisus-investors-rethink-bonds-role-as-inflation-reshapes-portfolios-4808031",
+      "pubDate": "2026-07-23 16:30:41",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Natural gas storage report reveals higher-than-expected increase",
+      "link": "https://www.investing.com/news/economic-indicators/natural-gas-storage-report-reveals-higherthanexpected-increase-93CH-4809394",
+      "pubDate": "2026-07-23 14:32:09",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "U.S. weekly jobless claims drop to 187,000, lowest since 1969",
+      "link": "https://www.investing.com/news/economic-indicators/us-weekly-jobless-claims-drop-to-187000-4808983",
+      "pubDate": "2026-07-23 13:00:59",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "U.S. Initial Jobless Claims Drop Significantly, Surpassing Expectations",
+      "link": "https://www.investing.com/news/economic-indicators/us-initial-jobless-claims-drop-significantly-surpassing-expectations-93CH-4808821",
+      "pubDate": "2026-07-23 12:30:11",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "UK factory orders remain in doldrums, cost pressures jump, CBI says",
+      "link": "https://www.investing.com/news/economic-indicators/uk-factory-orders-remain-in-doldrums-cost-pressures-jump-cbi-says-4808115",
+      "pubDate": "2026-07-23 10:31:22",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Analysis-Pakistan’s US funding push after Iran war role draws skepticism from economists",
+      "link": "https://www.investing.com/news/economic-indicators/analysispakistans-us-funding-push-after-iran-war-role-draws-skepticism-from-economists-4808045",
+      "pubDate": "2026-07-23 10:08:47",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Australia jobs blow past expectations in June, cements bets of another rate rise",
+      "link": "https://www.investing.com/news/economic-indicators/australia-jobs-surge-in-june-unemployment-steady-as-more-look-for-work-4807372",
+      "pubDate": "2026-07-23 09:00:35",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "BayCom earnings missed by $1.28, revenue fell short of estimates",
+      "link": "https://www.investing.com/news/earnings/baycom-earnings-missed-by-128-revenue-fell-short-of-estimates-4810152",
+      "pubDate": "2026-07-23 21:38:43",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "OP Bancorp earnings beat by $0.08, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/op-bancorp-earnings-beat-by-008-revenue-topped-estimates-4810134",
+      "pubDate": "2026-07-23 21:20:42",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Business First earnings beat by $0.01, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/business-first-earnings-beat-by-001-revenue-topped-estimates-4810133",
+      "pubDate": "2026-07-23 21:20:41",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Alpine Income earnings beat by $0.02, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/alpine-income-earnings-beat-by-002-revenue-topped-estimates-4810124",
+      "pubDate": "2026-07-23 21:17:04",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Phillips Edison Co earnings beat by $0.15, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/phillips-edison-co-earnings-beat-by-015-revenue-topped-estimates-4810123",
+      "pubDate": "2026-07-23 21:17:00",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "CNB Financial earnings missed by $0.22, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/cnb-financial-earnings-missed-by-022-revenue-topped-estimates-4810108",
+      "pubDate": "2026-07-23 21:14:37",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "World Kinect surges 7% on strong Q2 beat, raised guidance",
+      "link": "https://www.investing.com/news/earnings/world-kinect-surges-7-on-strong-q2-beat-raised-guidance-93CH-4810106",
+      "pubDate": "2026-07-23 21:12:52",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Glacier Bancorp falls on revenue miss despite earnings beat",
+      "link": "https://www.investing.com/news/earnings/glacier-bancorp-falls-on-revenue-miss-despite-earnings-beat-93CH-4810101",
+      "pubDate": "2026-07-23 21:11:02",
+      "author": "Investing.com (公司盈餘)"
+    }
+  ]
+}

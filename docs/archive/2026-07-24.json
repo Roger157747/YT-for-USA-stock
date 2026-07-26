@@ -1,0 +1,213 @@
+{
+  "title": "今日美股動態與深度聲報",
+  "written_report": {
+    "stock_analysis": "### 科技巨頭面臨 AI ROI 考驗，道瓊逆勢收紅\n\n今日美股市場呈現顯著的分化格局。**道瓊工業指數上漲 0.45%**，然而以科技股為主的**納斯達克指數則因市場對 AI 資本支出（Capex）回報率（ROI）的疑慮而表現相對疲軟**。當前市場正處於關鍵的財報季，投資人對於 Meta、Amazon、Apple 以及 Google 等科技巨頭在 AI 領域的龐大支出是否能迅速轉化為實際營收，抱持高度審視態度。\n\n在個股表現方面：\n* **Apple (AAPL)**：最新季報表現優於市場預期，雖然為市場注入一劑強心針，但關於其 AI（Apple Intelligence）長期變現能力的討論仍在持續。\n* **Intel (INTC)**：即便創下近 15 年來最強勁的營收成長，股價仍面臨投資人「利多出盡」的獲利了結賣壓而走跌。\n* **GE Vernova (GEV) 與 Crowdstrike (CRWD)**：在美股投資委員會（Investment Committee）的討論中，這兩檔股票因近期基本面與題材波動，成為資金追逐的焦點。\n* **國防與航太板塊**：General Dynamics (GD) 成功斬獲價值 4 億美元的太空領域合約，為該板塊提供強勁支撐。\n* **生技與傳統產業**：AstraZeneca (AZN) 在面臨管線研發挫折後，市場正屏息以待其最新的財報表現；而鐵路龍頭 Norfolk Southern (NSC) 則在執行長 Alan Shaw 的帶領下，展現出強韌的營運績效。",
+    "fund_flow": "### 資金輪動至防禦性與傳統板塊，比特幣現底部分型\n\n從資金流向來看，市場避險情緒因總體經濟數據與地緣政治不確定性而有所升溫。**川普宣布實施新的全球關稅計畫**，引發貿易夥伴抗議；加上 **JPMorgan 警告「超級聖嬰現象」與石油價格衝擊**可能再度推升全球通膨，資金開始出現從高估值科技股撤出、流入防禦性與傳統價值股的跡象。\n\n* **板塊輪動與總經數據**：美國 7 月服務業 PMI 表現遠超預期，但製造業 PMI 卻差強人意，顯示產業復甦步調不一。強勁的新屋銷售與建築許可表現，支撐了營建與內需相關板塊的資金動能。\n* **加密貨幣市場**：比特幣（BTC）在經歷先前的修正後，目前呈現緩步墊高的走勢。SkyBridge 的 Anthony Scaramucci 指出市場最壞的情況已經過去；Fundstrat 的 Tom Lee 更樂觀預期，在年底前比特幣有望挑戰歷史新高，吸引部分風險資金再度重返加密市場。\n* **併購與法律動態**：Paramount (PARA) 與華納兄弟（Warner Bros）的交易案因訴訟暫時擱置，使得傳播媒體板塊的資金呈現觀望態勢。",
+    "investment_advice": "### 長線配置與投資建議：聚焦「高現金流」與「基建實質受惠者」\n\n面對當前科技股的高估值與 AI 投資焦慮，建議投資人在長期資產配置上採取更平衡的策略：\n\n1. **AI 基礎建設與 Capex 實質受益者**：\n   與其盲目追逐高本益比的軟體應用，不如鎖定提供 AI 硬體基礎設施與電網升級的企業。例如 **GE Vernova (GEV)** 在電力與綠能基礎建設的領導地位，將實質受惠於資料中心龐大的電力需求。\n   \n2. **具備強勁定價權的傳統價值股**：\n   在通膨隱憂（聖嬰現象與油價衝擊）與關稅戰威脅下，應配置具備高度轉嫁成本能力的公司。防禦型龍頭如 **General Dynamics (GD)** 擁有政府國防合約保障，受經濟波動影響較小。\n   \n3. **天然氣與潔淨能源的戰略配置**：\n   EQT 執行長 Toby Z. Rice 對天然氣前景持樂觀態度，隨著各國對清潔能源過渡期的需求增加，天然氣作為過渡能源的地位依然穩固，相關龍頭股值得長線佈局。\n   \n4. **加密貨幣的逢低配置**：\n   比特幣在中長期機構資金持續流入（如 ETF 效應）與市場預期修正完畢後，建議投資人可以採取定期定額方式，將其作為對抗傳統法幣貶值的替代資產。"
+  },
+  "podcast_script": [
+    {
+      "speaker": "HsiaoChen",
+      "text": "哈囉大家，歡迎收聽今日的美股焦點聲報。我是 HsiaoChen！今天美股市場真的好熱鬧，但科技股投資人好像……稍微有那麼一點點小焦慮耶，YunJhe，你怎麼看今天的盤勢啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "嗨，大家好，我是 YunJhe。對啊，今天納斯達克指數表現確實比較壓抑一點。最主要的原因，就是大家開始對各大科技巨頭的 AI 資本支出，也就是 Capex，拿出了放大鏡來檢視啦！像 Meta、亞馬遜、蘋果這些大咖，市場現在不只要看他們畫大餅，更想知道到底什麼時候才能看到真正的投資回報率，也就是 ROI 囉。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "真的耶！像蘋果這次雖然季報表現超出了預期，但大家心裡還是會嘀咕……這波 AI 智慧到底能不能帶來實質的換機潮？對了，講到財報，Intel 的表現也很奇妙，明明營收創下 15 年來最強勁的成長，為什麼股價不漲反跌啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "這就是典型市場上常說的『利多出盡』啦。很多投資人趁著財報開出來、數據好看的時候，趕快獲利了結。加上大家對半導體產業未來的利潤率還是有一些觀望。這時候資金反而開始流向一些像是 GE Vernova 這種做電力基礎建設，或是 Crowdstrike 這種資訊安全的公司，感覺資金在做一些板塊的輪動。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "喔，懂了！就是資金在找更有實質支撐的避風港。對了，說到避風港，我今天看到總經數據，美國 7 月的服務業 PMI 衝得很高耶！可是製造業 PMI 卻好像不太行，這代表什麼意思啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "這代表美國現在的經濟是『服務業熱呼呼、製造業冷冰冰』的雙速前進狀態啦。而且你看，新屋銷售數據表現非常好，這說明內需和房地產市場還是很有韌性。不過，我們也不能太樂觀，因為川普最近又提出了一些新的全球關稅計畫，這讓貿易夥伴們非常緊張，後續可能會有一些關稅摩擦喔。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "天啊，關稅戰又要來了嗎？那這樣通膨會不會又被點火啊？而且我今天還看到 JPMorgan 警告說，因為『超級聖嬰現象』加上石油價格衝擊，可能會讓全球通膨再度復燃耶！這樣我們投資人該怎麼防範？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "這確實是個隱憂。所以你看，今天的道瓊工業指數反而逆勢上漲了 0.45%，資金其實有在往傳統防禦性板塊移動。像是 General Dynamics 最近拿到 4 億美元的太空合約，這類有政府合約掛保證的國防股，就非常耐震。另外，天然氣龍頭 EQT 的執行長也對天然氣前景非常看好，這種能源股也是抗通膨的不錯選擇。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "哇，原來如此。那在這麼多變化的環境下，我們來聊聊最近也很夯的加密貨幣吧。SkyBridge 的創辦人 Scaramucci 說，比特幣已經不會再更糟了，會慢慢往上爬；Fundstrat 的 Tom Lee 甚至預測年底會創新高耶！你覺得這真的有可能嗎？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "哈哈，Tom Lee 每次都非常樂觀。不過，從技術面和籌碼面來看，比特幣在經歷前陣子的震盪洗盤後，確實有在慢慢墊高。只要總體經濟沒有出現極端的惡化，在美聯儲未來可能的降息預期下，比特幣作為替代資產，年底前確實有機會迎來一波行情。不過還是那句話，心臟要夠大顆啦。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "真的，心臟要強一點！那最後……YunJhe 能不能給我們的聽眾朋友一些具體的長線配置建議呢？現在這個時間點，到底該怎麼調整資產會比較安心？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "好的。我覺得第一，不要因為科技股一時的調整就慌忙全砍，但要避開那些『只有題材、沒有獲利』的高估值股票。第二，一定要配置一部分資金在『實質受惠於 AI Capex』的基建股，像是 GE Vernova 這種電網龍頭。第三，搭配一些高現金流、有防禦性質的能源或國防股，像是 EQT 或 General Dynamics。這樣不論市場是往上衝還是往下盪，你的資產配置都會非常穩健。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "哇，今天真的學到好多！聽完 YunJhe 的分析，感覺心裡踏實多了。各位聽眾朋友，今天的『美股焦點聲報』就到這邊囉！如果你喜歡我們的節目，千萬別忘了訂閱、分享，並給我們五星好評。我們下次見囉，拜拜！"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "大家拜拜，我們下次見！"
+    }
+  ],
+  "date": "2026-07-24",
+  "investing_news": [
+    {
+      "title": "Mexico stocks higher at close of trade; S&P/BMV IPC up 0.18%",
+      "link": "https://www.investing.com/news/stock-market-news/mexico-stocks-higher-at-close-of-trade-spbmv-ipc-up-018-4812552",
+      "pubDate": "2026-07-24 21:30:04",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Colombia stocks lower at close of trade; COLCAP down 0.38%",
+      "link": "https://www.investing.com/news/stock-market-news/colombia-stocks-lower-at-close-of-trade-colcap-down-038-4812551",
+      "pubDate": "2026-07-24 21:25:03",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Russia stocks higher at close of trade; MOEX Russia Index up 0.71%",
+      "link": "https://www.investing.com/news/stock-market-news/russia-stocks-higher-at-close-of-trade-moex-russia-index-up-071-4812549",
+      "pubDate": "2026-07-24 21:20:04",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "General Dynamics wins $400M space contract",
+      "link": "https://www.investing.com/news/stock-market-news/general-dynamics-wins-400m-space-contract-93CH-4812547",
+      "pubDate": "2026-07-24 21:19:13",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Paramount agrees to pause Warner Bros deal while case plays out",
+      "link": "https://www.investing.com/news/stock-market-news/paramount-agrees-to-pause-warner-bros-deal-while-case-plays-out-4812448",
+      "pubDate": "2026-07-24 21:18:50",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "CFTC issues guidance on prediction market contract certifications",
+      "link": "https://www.investing.com/news/stock-market-news/cftc-issues-guidance-on-prediction-market-contract-certifications-93CH-4812535",
+      "pubDate": "2026-07-24 21:08:53",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Nasdaq lags on angst over AI spending ahead of earnings reports",
+      "link": "https://www.investing.com/news/stock-market-news/wall-st-futures-rise-after-tech-rout-mideast-tariffs-in-focus-4810955",
+      "pubDate": "2026-07-24 20:48:32",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "U.S. stocks mixed at close of trade; Dow Jones Industrial Average up 0.45%",
+      "link": "https://www.investing.com/news/stock-market-news/us-stocks-mixed-at-close-of-trade-dow-jones-industrial-average-up-045-4812502",
+      "pubDate": "2026-07-24 20:35:06",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Brazil eases spending block and improves 2026 deficit view",
+      "link": "https://www.investing.com/news/economic-indicators/brazil-eases-spending-block-and-improves-2026-deficit-view-4812401",
+      "pubDate": "2026-07-24 18:48:55",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "JPMorgan warns ’super’ El Niño and oil shock could prop up global inflation",
+      "link": "https://www.investing.com/news/economic-indicators/jpmorgan-warns-super-el-nino-and-oil-shock-could-prop-up-global-inflation-4812197",
+      "pubDate": "2026-07-24 16:25:35",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "New home sales surpass expectations, signaling robust housing demand",
+      "link": "https://www.investing.com/news/economic-indicators/new-home-sales-surpass-expectations-signaling-robust-housing-demand-93CH-4812041",
+      "pubDate": "2026-07-24 14:02:10",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "US business activity perks up in July, helped by World Cup, but trend may not last, S&P Global says ",
+      "link": "https://www.investing.com/news/economic-indicators/us-business-activity-perks-up-in-july-helped-by-world-cup-but-trend-may-not-last-sp-global-says-4812037",
+      "pubDate": "2026-07-24 14:00:35",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Services PMI Surges, Exceeding Forecasts and Previous Levels",
+      "link": "https://www.investing.com/news/economic-indicators/services-pmi-surges-exceeding-forecasts-and-previous-levels-93CH-4812001",
+      "pubDate": "2026-07-24 13:48:10",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "Manufacturing PMI falls short of expectations, signaling sectoral challenges",
+      "link": "https://www.investing.com/news/economic-indicators/manufacturing-pmi-falls-short-of-expectations-signaling-sectoral-challenges-93CH-4811993",
+      "pubDate": "2026-07-24 13:46:10",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "Trump imposes new global tariffs, drawing protests from trading partners",
+      "link": "https://www.investing.com/news/economic-indicators/trump-imposes-forced-labor-duties-on-60-trading-partners-as-10-us-tariffs-expire-4810447",
+      "pubDate": "2026-07-24 13:12:30",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Building permits decline less than forecasted, signaling resilience",
+      "link": "https://www.investing.com/news/economic-indicators/building-permits-decline-less-than-forecasted-signaling-resilience-93CH-4811630",
+      "pubDate": "2026-07-24 12:14:09",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "Northeast Community earnings missed by $0.05, revenue fell short of estimates",
+      "link": "https://www.investing.com/news/earnings/northeast-community-earnings-missed-by-005-revenue-fell-short-of-estimates-4812460",
+      "pubDate": "2026-07-24 20:07:12",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Tompkins earnings beat by $0.22, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/tompkins-earnings-beat-by-022-revenue-topped-estimates-4812297",
+      "pubDate": "2026-07-24 16:52:01",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Verimatrix reports 11% drop in first-half anti-piracy revenue",
+      "link": "https://www.investing.com/news/earnings/verimatrix-reports-11-drop-in-firsthalf-antipiracy-revenue-93CH-4812260",
+      "pubDate": "2026-07-24 16:10:25",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Intel down as investors lock in gains despite strongest revenue growth in 15 years",
+      "link": "https://www.investing.com/news/earnings/intel-posts-strongest-revenue-growth-in-over-15-years-on-ai-demand-4809889",
+      "pubDate": "2026-07-24 15:09:23",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "First Hawaiian earnings beat by $0.02, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/first-hawaiian-earnings-beat-by-002-revenue-topped-estimates-4812073",
+      "pubDate": "2026-07-24 14:17:10",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Republic Bancorp earnings beat by $0.13, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/republic-bancorp-earnings-beat-by-013-revenue-topped-estimates-4812072",
+      "pubDate": "2026-07-24 14:17:08",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "AstraZeneca earnings up next after pipeline setback rattles investors",
+      "link": "https://www.investing.com/news/earnings/astrazeneca-earnings-up-next-after-pipeline-setback-rattles-investors-93CH-4811970",
+      "pubDate": "2026-07-24 13:42:32",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "All eyes on Park National earnings amid post-merger growth test",
+      "link": "https://www.investing.com/news/earnings/all-eyes-on-park-national-earnings-amid-postmerger-growth-test-93CH-4811966",
+      "pubDate": "2026-07-24 13:41:39",
+      "author": "Investing.com (公司盈餘)"
+    }
+  ]
+}

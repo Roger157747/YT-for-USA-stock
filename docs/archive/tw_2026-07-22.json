@@ -1,0 +1,166 @@
+{
+  "title": "台股每日分析 (2026-07-22)",
+  "written_report": {
+    "stock_market": "台股行情分析生成暫時失敗，請稍候重試或檢查 API 設定。",
+    "industry_analysis": "目前無產業分析資料。",
+    "fund_flow": "目前無三大法人資金流動資料。",
+    "stock_recommendations": "目前無個股推薦。"
+  },
+  "podcast_script": [
+    {
+      "speaker": "HsiaoChen",
+      "text": "不好意思，今天我們的台股 AI 生成系統遇到了一些問題，請明天再收聽我們的精彩解析！"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "對啊，大家先看看相關財經新聞，祝大家操作順利！"
+    }
+  ],
+  "date": "2026-07-22",
+  "investing_news": [
+    {
+      "title": "US judge casts doubt on 69,000 cases alleging J&J talc caused cancer",
+      "link": "https://www.investing.com/news/stock-market-news/us-judge-casts-doubt-on-69000-cases-alleging-jj-talc-caused-cancer-4807027",
+      "pubDate": "2026-07-22 21:42:30",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Vitamin Well raises $2.2 billion to fund EMPWR acquisition - Bloomberg",
+      "link": "https://www.investing.com/news/stock-market-news/vitamin-well-raises-22-billion-to-fund-empwr-acquisition--bloomberg-93CH-4807134",
+      "pubDate": "2026-07-22 21:42:18",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Northrop Grumman wins $1.2B Navy contract for E-2D aircraft",
+      "link": "https://www.investing.com/news/stock-market-news/northrop-grumman-wins-12b-navy-contract-for-e2d-aircraft-93CH-4807125",
+      "pubDate": "2026-07-22 21:34:10",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Gang claims responsibility for hack at Coca-Cola’s fairlife unit",
+      "link": "https://www.investing.com/news/stock-market-news/gang-claims-responsibility-for-hack-at-cocacolas-fairlife-unit-4807122",
+      "pubDate": "2026-07-22 21:30:55",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "New York mayor taps ex-FTC Chair Khan for key economic post, separately faces suit over rent freeze",
+      "link": "https://www.investing.com/news/stock-market-news/new-york-mayor-taps-exftc-chair-khan-for-key-economic-post-separately-faces-suit-over-rent-freeze-4807121",
+      "pubDate": "2026-07-22 21:30:36",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Mexico stocks higher at close of trade; S&P/BMV IPC up 0.88%",
+      "link": "https://www.investing.com/news/stock-market-news/mexico-stocks-higher-at-close-of-trade-spbmv-ipc-up-088-4807119",
+      "pubDate": "2026-07-22 21:30:03",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Tropical Storm Bertha makes landfall in St. Bernard Parish, Louisiana",
+      "link": "https://www.investing.com/news/stock-market-news/tropical-storm-bertha-makes-landfall-in-st-bernard-parish-louisiana-4807115",
+      "pubDate": "2026-07-22 21:26:04",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Raymond James profit rises on capital markets strength",
+      "link": "https://www.investing.com/news/stock-market-news/raymond-james-profit-rises-on-capital-markets-strength-4807114",
+      "pubDate": "2026-07-22 21:25:49",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "New US 25% tariff hits billions of dollars in Brazilian exports",
+      "link": "https://www.investing.com/news/economic-indicators/new-us-25-tariff-hits-billions-of-dollars-in-brazilian-exports-4805104",
+      "pubDate": "2026-07-22 15:36:58",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Crude Oil Inventories Surge, Surpassing Forecasts and Previous Levels",
+      "link": "https://www.investing.com/news/economic-indicators/crude-oil-inventories-surge-surpassing-forecasts-and-previous-levels-93CH-4806383",
+      "pubDate": "2026-07-22 14:32:10",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "UK house prices rose by 2.7% in year to May, ONS data shows",
+      "link": "https://www.investing.com/news/economic-indicators/uk-house-prices-rose-by-27-in-year-to-may-ons-data-shows-4804985",
+      "pubDate": "2026-07-22 09:00:37",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Canada FM urges Middle East de-escalation, calls South China Sea confrontation ’troubling’",
+      "link": "https://www.investing.com/news/economic-indicators/canada-fm-urges-middle-east-deescalation-calls-south-china-sea-confrontation-troubling-4804974",
+      "pubDate": "2026-07-22 08:54:34",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "South Africa’s June inflation rises to 5.0%, above forecast",
+      "link": "https://www.investing.com/news/economic-indicators/south-africas-june-inflation-rises-to-50-above-forecast-93CH-4804903",
+      "pubDate": "2026-07-22 08:30:51",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "UK inflation eases to 14-month low of 2.6% in June",
+      "link": "https://www.investing.com/news/economic-indicators/uk-inflation-eases-to-26-in-june-from-28-in-may-4804680",
+      "pubDate": "2026-07-22 06:32:08",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "Japan trade balance shrinks in June as high imports offset export strength",
+      "link": "https://www.investing.com/news/economic-indicators/japan-trade-balance-shrinks-in-june-as-high-imports-offset-export-strength-4804497",
+      "pubDate": "2026-07-22 00:22:13",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "US, Mexico resume USMCA trade talks as Trump hits Canada with new tariffs",
+      "link": "https://www.investing.com/news/economic-indicators/us-mexico-resume-usmca-trade-talks-as-trump-hits-canada-with-new-tariffs-4802492",
+      "pubDate": "2026-07-21 23:48:29",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Wex earnings beat by $0.29, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/wex-earnings-beat-by-029-revenue-topped-estimates-4807118",
+      "pubDate": "2026-07-22 21:29:03",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Google nearly doubles AI infrastructure spending as Q2 tops estimates",
+      "link": "https://www.investing.com/news/earnings/alphabet-nearly-doubles-capital-spending-as-ai-push-powers-q2-growth-4806860",
+      "pubDate": "2026-07-22 21:17:44",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Oceaneering International earnings beat by $0.19, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/oceaneering-international-earnings-beat-by-019-revenue-topped-estimates-4807098",
+      "pubDate": "2026-07-22 21:17:29",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "United Rentals soars 11% on earnings beat and raised outlook",
+      "link": "https://www.investing.com/news/earnings/united-rentals-soars-11-on-earnings-beat-and-raised-outlook-93CH-4807086",
+      "pubDate": "2026-07-22 21:11:47",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Tesla reports quarterly negative free cash flow for first time in over two years",
+      "link": "https://www.investing.com/news/earnings/tesla-stock-slips-after-hours-as-quarterly-profit-misses-estimates-4806802",
+      "pubDate": "2026-07-22 21:11:05",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Medpace surges on earnings beat and raised guidance",
+      "link": "https://www.investing.com/news/earnings/medpace-surges-on-earnings-beat-and-raised-guidance-93CH-4807085",
+      "pubDate": "2026-07-22 21:08:57",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "QuantumScape falls as Q2 loss narrows but concerns linger",
+      "link": "https://www.investing.com/news/earnings/quantumscape-falls-as-q2-loss-narrows-but-concerns-linger-93CH-4807077",
+      "pubDate": "2026-07-22 21:05:16",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Sonoco beats Q2 earnings, revenue estimates on cost controls",
+      "link": "https://www.investing.com/news/earnings/sonoco-beats-q2-earnings-revenue-estimates-on-cost-controls-93CH-4807067",
+      "pubDate": "2026-07-22 21:00:14",
+      "author": "Investing.com (公司盈餘)"
+    }
+  ]
+}

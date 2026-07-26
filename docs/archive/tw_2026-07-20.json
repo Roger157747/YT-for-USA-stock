@@ -1,0 +1,222 @@
+{
+  "title": "今日台股焦點與深度聲報",
+  "written_report": {
+    "stock_market": "### 台股大盤行情分析\n\n今日台股呈現驚心動魄的劇烈震盪格局。受到美伊局勢緊張及美股獲利回吐賣壓影響，加權指數一度跌破 **43,000 點** 關卡。然而，隨著盤中**台積電（2330）**無懼外資賣壓強勢回神撐盤，終場帶領指數跌幅收斂並成功收紅，重返 2,330 元關卡附近的關鍵位置。\n\n*   **技術面分析**：加權指數今日雖跌破短天期均線，但下檔季線與半年線具備強大支撐。尤其今日爆出融資大減，顯示浮額已得到充分清洗。目前大盤處於「破底翻」的關鍵測試期，若能持穩在 42,500 至 43,000 點的支撐區間之上，多頭格局仍未破壞。\n*   **權值股表現**：台積電展現中流砥柱氣勢，拉回即有強力買盤湧入；相較之下，**聯電（2303）**因法說展望與市佔隱憂，股價重挫甚至面臨跌停命運，強弱表現極度兩極化。**鴻海（2317）**則在奪下低軌道衛星大單的利多激勵下，股價相對抗跌。",
+    "industry_analysis": "### 焦點產業深度剖析\n\n1.  **低軌道衛星（SpaceX 概念股）**：\n    雖然近期 SpaceX 股價於海外市場出現波動，但台灣供應鏈卻傳來大驚喜。**鴻海（2317）**傳出首度奪得 SpaceX 的關鍵大單，可望帶動旗下相關網通與系統整合子公司營運大爆發，成為市場新亮點。\n2.  **銅箔基板（CCL）與老 AI 族群**：\n    銅箔基板大廠**聯茂（6213）**因獲利報喜，法人紛紛上調目標價，市場甚至出現上看 585 元的樂觀預期。此外，許多「老 AI 族群」在歷經大幅修正後，本益比（P/E）已降至極具吸引力的「真香」區間，長線投資價值浮現。\n3.  **觀光航運與記憶體**：\n    隨著暑期旺季到來與運價維持高檔，航運雙雄**長榮航（2618）**、**華航（2610）**已進入起飛倒數階段。而記憶體模組廠**宇瞻（8271）**在法說會前夕推出新品，封測大廠**欣銓（3264）**獲利則有望逐季走高，皆為短線亮點。",
+    "fund_flow": "### 資金流向與籌碼面觀察\n\n今日市場籌碼面出現極為健康的「大洗盤」訊號：\n\n*   **融資與浮額清洗**：台股近期融資水位大幅被砍，單日狂殺高達 **416 億元**。融資大減意味著市場上的散戶浮額已得到大幅清洗，這往往是中線底部浮現的重要指標。\n*   **三大法人動向**：外資受國際避險情緒影響，在期現貨同步進行策略性調節，但投信與特定內資公股進場逢低承接意願極強，尤其中意台積電等核心權值。\n*   **避險情緒討論**：美伊再度交火、中東局勢緊張，加上川普擬收緊國防供應鏈豁免規則，引發部分避險資金流入軍工與航運板塊，市場成交量能呈現結構性調整。",
+    "stock_recommendations": "### 投資策略與個股推薦\n\n#### 🚀 長線佈局推薦：台積電（2330）\n*   **基本面利基**：先進製程全球市佔率第一，AI 與 HPC 晶片需求持續爆發，無懼外資短期調節。\n*   **技術面分析**：股價重返 2,330 元關鍵防守位置，下檔季線支撐強勁。\n*   **操作策略**：建議採分批佈局策略，若拉回至 2,300 元附近為極佳中長線買點。防守停損位設在半年線位置。\n\n#### 📈 短線操作推薦：聯茂（6213）\n*   **基本面利基**：受惠於 AI 伺服器高頻高速傳輸需求，CCL 獲利表現亮眼，法人買盤進駐，目標價想像空間大。\n*   **技術面分析**：股價拉回整理後重現多頭攻擊訊號，帶量突破短期均線糾結處。\n*   **操作策略**：可於股價回測 5 日線不破時伺機進場。短線停利目標設在前波高點，防守停損位置設在今日跳空缺口下緣。"
+  },
+  "podcast_script": [
+    {
+      "speaker": "HsiaoChen",
+      "text": "哈囉大家，歡迎收聽今日的台股焦點聲報。我是 HsiaoChen！今天台股的走勢……真的只能用驚心動魄、洗洗樂來形容耶！YunJhe，你怎麼看今天大盤的洗盤秀？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "嗨，大家好，我是 YunJhe。今天台股加權指數……真的是考驗所有投資人的心臟啊！特別是盤中一度跌破四萬三千點，那個氣氛……真的會讓人想要跟著尖叫。不過呢，好消息是……市場這波融資居然狂殺了 416 億元！這代表散戶的浮額……已經被洗得很乾淨了喔。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "哇塞！416 億耶！這數字聽起來真的超恐怖的……不過，這是不是代表，籌碼面反而變得比較乾淨，有機會迎來反彈了呢？而且今天台積電表現好像很抗跌，反觀聯電……怎麼會差這麼多啊？一個收紅，另一個居然差點跌停！"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "對啊，這就是我們常說的……『同人不同命』。台積電今天展現了神山級的實力，無懼外資的調節，強勢重返 2,330 元大關！這告訴我們，只要台積電一回神，大盤的底氣就在。但是聯電就比較辛苦了，可能因為法說會展望，還有成熟製程的市佔競爭，引發了失望性賣壓，短線上……真的受傷比較重。所以現在買點到了嗎？我覺得台積電拉回，真的是中長線好機會。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "原來如此，那真的是拉回找買點耶。那除了半導體龍頭，我今天有注意到一個很大的八卦！就是低軌道衛星的 SpaceX。雖然聽說他們海外股價有點從雲端掉下來，但鴻海好像反而拿到了大單？這到底是怎麼一回事啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "哈哈，這就是台股供應鏈厲害的地方啦！雖然 SpaceX 股價在美股那邊有些波動，但是……鴻海這次據傳首度奪下了 SpaceX 的低軌道衛星關鍵大單！這對鴻海來說，是跨入航太與通訊新領域的一大步，也是一筆非常肥美的訂單。這會直接帶動鴻海旗下相關網通子公司的出貨，行情下半場……說不定就要換人跑囉！"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "哇！鴻海這隻大象真的越來越會跳舞了。那如果是預算比較有限的觀眾，想要看一些低估值的股票，現在有哪些族群比較有戲呢？像是最近大家在討論的……『老 AI』，還有 CCL 的聯茂，現在本益比是不是變得很香啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "沒錯！老 AI 族群在經過這一波的大幅修正之後，現在本益比真的是『超香的』。而聯茂更厲害，因為獲利表現亮眼，甚至有法人報告大膽把目標價上看 585 元喔！這在當前震盪的市場裡，無疑是一劑強心針。另外像記憶體的宇瞻、還有測試廠欣銓，獲利都看好能逐季走高，法說會前都很值得關注。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "上看 585 元……這想像空間也太大了吧！不過，YunJhe，我們也不能忽視國際上的風風雨雨。像是 Investing 財經新聞提到，美伊局勢再度交火，還有川普打算收緊國防供應鏈的豁免規則，這會不會讓台股又陷入震盪？我們該怎麼避風港呢？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "嗯……這個國際政治風險，確實是目前市場最頭痛的事情。美伊局勢緊張，加上川普的關稅與防務供應鏈政策，會讓資金偏向保守。這時候，避風港就可以看看長榮航跟華航這類型的航空雙雄。因為暑假旺季、載客量爆棚，加上油價如果因局勢波動，航空業者的票價彈性也大。所以，長榮航和華航……起飛倒數的機會蠻高的喔！"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "聽你這樣分析，現在的策略好像就是『大盤轉弱不用怕，反而要挑真強股』。那麼，如果今天聽眾想要實際下單操作，你會給長線和短線投資人什麼樣的具體建議和防守位置呢？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "好的，我覺得操作上一定要分工。長線的話，首選依然是**台積電**。如果股價拉回到 2,300 元附近，分批布局，防守點就看半年線。短線的話，可以挑剛才提到的**聯茂**，趁著這波突破均線糾結，回測 5 日線不破時進場，停損點設在今天跳空缺口的下緣，這樣進可攻、退可守，非常符合現在的動盪局勢。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "哇，今天 YunJhe 的分析真的太實用了！把台積電的買點、鴻海的衛星大單，還有聯茂和航空股的避風港策略都講得一清二楚。大家聽完，是不是覺得對明天的盤勢比較有信心了呢？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "對啊，市場震盪不可怕，把籌碼洗乾淨了，後面才有大行情。大家加油！"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "沒錯，把握洗盤後的黃金買點！謝謝大家收聽今天的台股焦點聲報，我們下次見囉，拜拜！"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "拜拜！"
+    }
+  ],
+  "date": "2026-07-20",
+  "investing_news": [
+    {
+      "title": "Raytheon wins $1.8B Navy radar contract modification",
+      "link": "https://www.investing.com/news/stock-market-news/raytheon-wins-18b-navy-radar-contract-modification-93CH-4801760",
+      "pubDate": "2026-07-20 21:41:18",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Capital One defeats lawsuit alleging excessive credit card rates",
+      "link": "https://www.investing.com/news/stock-market-news/capital-one-defeats-lawsuit-alleging-excessive-credit-card-rates-4801756",
+      "pubDate": "2026-07-20 21:37:35",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "US senators at airshow to reassure foreign defense contractors, urge tariff-free trade",
+      "link": "https://www.investing.com/news/stock-market-news/us-senators-at-airshow-to-reassure-foreign-defense-contractors-urge-tarifffree-trade-4801465",
+      "pubDate": "2026-07-20 21:36:57",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Wall Street indexes fall, with Iran and earnings season in focus",
+      "link": "https://www.investing.com/news/stock-market-news/wall-st-futures-edge-higher-ahead-of-this-weeks-megacap-earnings-4800229",
+      "pubDate": "2026-07-20 21:36:34",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Amazon stock: why David Tepper’s $1B bet could pay off for long-term investors",
+      "link": "https://www.investing.com/news/stock-market-news/amazon-stock-why-david-teppers-1b-bet-could-pay-off-for-longterm-investors-93CH-4801752",
+      "pubDate": "2026-07-20 21:31:30",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Cardinal Health to buy AdaptHealth diabetes unit, Strive Medical for $360 million",
+      "link": "https://www.investing.com/news/stock-market-news/cardinal-health-to-buy-adapthealth-diabetes-unit-strive-medical-for-360-million-4801751",
+      "pubDate": "2026-07-20 21:31:29",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Trump orders tightening of defense supply-chain waiver rules",
+      "link": "https://www.investing.com/news/stock-market-news/trump-orders-tightening-of-defense-supply-chain-waiver-rules-4801571",
+      "pubDate": "2026-07-20 21:30:52",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Mexico stocks lower at close of trade; S&P/BMV IPC down 0.77%",
+      "link": "https://www.investing.com/news/stock-market-news/mexico-stocks-lower-at-close-of-trade-spbmv-ipc-down-077-4801750",
+      "pubDate": "2026-07-20 21:30:03",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "India’s infrastructure output rises 5% y/y in June under new series",
+      "link": "https://www.investing.com/news/economic-indicators/indias-infrastructure-output-rises-5-yy-in-june-4800767",
+      "pubDate": "2026-07-20 12:06:25",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Chinese car sales in Mexico surge despite new tariffs",
+      "link": "https://www.investing.com/news/economic-indicators/chinese-car-sales-in-mexico-surge-despite-new-tariffs-4800312",
+      "pubDate": "2026-07-20 10:13:05",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Ukraine’s GDP grows 0.8% in May, economy ministry reports",
+      "link": "https://www.investing.com/news/economic-indicators/ukraines-gdp-grows-08-in-may-economy-ministry-reports-93CH-4800276",
+      "pubDate": "2026-07-20 10:06:08",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "Poland’s industrial output rises 7.6% in June, beating forecasts",
+      "link": "https://www.investing.com/news/economic-indicators/polands-industrial-output-rises-76-in-june-beating-forecasts-93CH-4799967",
+      "pubDate": "2026-07-20 07:37:47",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "German producer prices rise 1.8% y/y in June",
+      "link": "https://www.investing.com/news/economic-indicators/german-producer-prices-rise-18-yy-in-june-4799837",
+      "pubDate": "2026-07-20 06:12:55",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "German producer prices climb 1.8% in June, below forecasts",
+      "link": "https://www.investing.com/news/economic-indicators/german-producer-prices-climb-18-in-june-below-forecasts-93CH-4799830",
+      "pubDate": "2026-07-20 06:06:20",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "China keeps benchmark lending rates unchanged for 14th straight month in July",
+      "link": "https://www.investing.com/news/economic-indicators/china-keeps-benchmark-lending-rates-unchanged-for-14th-straight-month-in-july-4799773",
+      "pubDate": "2026-07-20 01:56:08",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "UK chief financial officers turn more hopeful about AI",
+      "link": "https://www.investing.com/news/economic-indicators/uk-chief-financial-officers-turn-more-hopeful-about-ai-4799751",
+      "pubDate": "2026-07-19 23:12:52",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Calix earnings beat by $0.06, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/calix-earnings-beat-by-006-revenue-topped-estimates-4801736",
+      "pubDate": "2026-07-20 21:12:13",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Park Aerospace shares soar 11% as Q1 results exceed analyst expectations",
+      "link": "https://www.investing.com/news/earnings/park-aerospace-shares-soar-11-as-q1-results-exceed-analyst-expectations-93CH-4801708",
+      "pubDate": "2026-07-20 20:57:42",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Wintrust Financial tops Q2 estimates, NII rises",
+      "link": "https://www.investing.com/news/earnings/wintrust-financial-tops-q2-estimates-nii-rises-93CH-4801702",
+      "pubDate": "2026-07-20 20:52:05",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Steel Dynamics falls 2% on second quarter earnings miss",
+      "link": "https://www.investing.com/news/earnings/steel-dynamics-falls-2-on-second-quarter-earnings-miss-93CH-4801699",
+      "pubDate": "2026-07-20 20:47:02",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "BOK Financial beats Q2 profit expectations, shares edge higher",
+      "link": "https://www.investing.com/news/earnings/bok-financial-beats-q2-profit-expectations-shares-edge-higher-93CH-4801695",
+      "pubDate": "2026-07-20 20:43:47",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Crown Holdings rises following Q2 beat and raise",
+      "link": "https://www.investing.com/news/earnings/crown-holdings-rises-following-q2-beat-and-raise-93CH-4801689",
+      "pubDate": "2026-07-20 20:38:17",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Home Bancorp earnings beat by $0.02, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/home-bancorp-earnings-beat-by-002-revenue-topped-estimates-4801683",
+      "pubDate": "2026-07-20 20:36:38",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Steel Dynamics earnings missed by $0.07, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/steel-dynamics-earnings-missed-by-007-revenue-topped-estimates-4801681",
+      "pubDate": "2026-07-20 20:33:40",
+      "author": "Investing.com (公司盈餘)"
+    }
+  ]
+}

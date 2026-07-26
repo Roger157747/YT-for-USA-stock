@@ -1,0 +1,226 @@
+{
+  "title": "今日台股焦點與深度聲報",
+  "written_report": {
+    "stock_market": "### 台股大盤走勢分析與關鍵支撐\n\n近日台股市場經歷了劇烈的震盪考驗，在空方賣壓宣洩後，大盤上演了精采的報復性強彈。加權指數在守穩**季線（生命線）**附近關鍵支撐後，展現出強烈的「V轉」反攻氣勢。護國神山**台積電 (2330)** 在季線位置浮現明顯的止跌反攻訊號，吸引低接買盤積極進場，重新奪回短期均線主導權。\n\n目前大盤技術面呈現「跌深強彈」格局，**短線壓力落於月線（約 22,500 點至 22,800 點區間）**，若能帶量克服月線反壓，則多頭格局將宣告強勢歸位；而**下方重要支撐則以季線為防守大本營**。櫃買指數（OTC）表現同樣亮眼，中小電子股彈幅甚至超越大盤，顯示內資信心正快速回溫，權值股如**聯發科 (2454)**、**鴻海 (2317)** 亦同步回穩，有利於多方籌碼的沉澱與集結。",
+    "industry_analysis": "### 強勢產業與熱門族群深度剖析\n\n1. **電子超跌族群與強彈先鋒**：\n   先前電子股因市場情緒恐慌而出現非理性殺低，如今「超跌就是最大利多」，高價IC設計、半導體設備、散熱模組等族群在甜甜價現身後，湧入強勁的搶短與回補資金。\n\n2. **AI應用與「DS時刻 2.0」震撼彈**：\n   市場高度矚目最新發表的「Kimi K3」，其優異的表現被業內喻為引爆了「DS（DeepSeek / AI Agent）時刻 2.0」，震撼全球科技界。這項AI軟硬體技術的重大突破，不僅刺激了台灣軟體代理與資訊服務商的想像空間，更進一步回頭強化了對硬體端——包括**AI伺服器、高效能運算 (HPC)、BBU (電池備用電力系統) 以及 CPO (共同光學封裝)** 的長線剛性需求。\n\n3. **漲價與原物料族群**：\n   被動元件、記憶體等「漲價族群」近期遇到劇烈震盪。專家指出，此時的震盪屬於多頭架構下的「健康洗盤」，投資人應檢視基本面，對於確實具備報價上漲支撐的個股可逢低分批布局，而非盲目拋售。",
+    "fund_flow": "### 三大法人動向與市場資金流向\n\n在籌碼面部分，近期外資在現貨市場的操作仍顯得較為審慎，並在期貨市場維持一定規模的避險空單；然而，**國內投信（SITC）則展現出極為強勁的護盤與換股決心**。趁著大盤先前拉回急跌，投信經理人正進行大規模的「大換股」動作，持續獲得投信逆勢買超、默默吃貨的個股，極有機會成為下一波引領大盤上攻的主流焦點。\n\n此外，市場資深經理人透露，早在 6 月底就已經執行「賣股、保留 22% 現金」的防守策略。這種「現金布局哲學」旨在保留子彈，當市場出現非理性大跌時，這 22% 的高水位現金就能轉化為源源不絕的「主動買盤」，這也是全球熱錢在動盪時期的標準配置。整體來看，融資餘額在急跌中有效減肥，籌碼面正由浮躁的散戶流向具備長線價值的法人手中。",
+    "stock_recommendations": "### 潛力個股推薦與操作策略\n\n#### 【長線優選：穩健佈局型】\n1. **台積電 (2330)**\n   - **基本面利基**：先進製程與 CoWoS 封裝產能持續供不應求，基本面毫無衰退跡象，全球AI晶片霸主地位依然穩固。\n   - **操作建議**：在大盤回檔至季線附近時，皆為中長線投資人極佳的「甜甜價」分批布局點。\n   - **防守退場點**：若放量跌破半年線則需適度調降部位。\n2. **鴻海 (2317)**\n   - **基本面利基**：輝達 (NVIDIA) GB200 伺服器即將於下半年放量出貨，身為系統整合龍頭，獲利動能將在 2026 年迎來爆發。\n   - **操作建議**：回測 180-185 元區間可積極建立基本持股。\n   - **防守退場點**：跌破前波平台支撐 170 元。\n\n#### 【短線追蹤：動能搶彈型】\n1. **雙鴻 (3324)**\n   - **基本面利基**：伺服器散熱瓦數提升，水冷散熱滲透率超乎預期，先前股價修正幅度已大，短線強彈動能充沛。\n   - **操作建議**：股價帶量突破 5 日線並站穩時，可輕倉進場搶反彈。\n   - **防守停損點**：跌破前低支撐即刻停損。\n2. **精誠 (6214)**\n   - **基本面利基**：受惠「Kimi K3」與「DS時刻 2.0」AI 軟體端應用落地熱潮，企業級資訊整合與雲端運算需求激增。\n   - **操作建議**：沿 10 日線偏多操作，短線爆量衝高時可先行獲利了結。\n   - **防守停損點**：失守月線。"
+  },
+  "podcast_script": [
+    {
+      "speaker": "HsiaoChen",
+      "text": "哈囉大家，歡迎收聽今日的台股焦點與深度聲報！我是主持人 HsiaoChen。今天我們邀請到資深的台股分析專家 YunJhe，要來幫大家深度拆解一下最近驚心動魄的台股盤勢。YunJhe，你好！"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "HsiaoChen 好，各位聽眾朋友，大家平安，我是 YunJhe。最近這台股啊，真的像是坐雲霄飛車一樣，震盪得非常厲害。尤其是前陣子大跌之後，現在又突然出現報復性的強彈，這讓很多投資人都在問：這到底是不是真正的『V轉』啊？"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "對啊！很多觀眾看到大盤在季線附近有撐，然後台積電又發動反攻，心裡真的好癢，想說是不是該衝進去搶便宜了？可是又怕這只是曇花一現的『死貓跳』。你怎麼看台積電在季線的止跌訊號呢？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "其實喔……我們常講『跌深就是最大的利多』。電子股之前因為一些地緣政治啊，還有漲多的獲利回吐，真的跌得有點過頭了。這次台積電在季線附近止跌，技術面確實釋放出很強烈的反攻訊號。不過我會建議大家，別急！多頭雖然想強勢歸位，但大盤接下來還要面對月線的反壓，需要時間去量縮整理，不用急著在第一天大漲的時候去追高。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "原來如此。不過我聽說，有些經理人非常厲害耶！在非凡節目上有專家提到，他們在六月底的時候就已經開始賣股票，甚至把現金部位拉高到 22%！這真的太神了吧？這種『22% 現金的布局哲學』背後到底是什麼邏輯啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "哈哈，這就是專業經理人的敏感度啦。當大家在六月底、七月初還在為創新高瘋狂的時候，市場的風險指標已經在攀升了。保留 22% 的現金，不是因為看壞市場，而是『留得青山在，不怕沒柴燒』。你想想看，當這波大盤急跌、好股票都打折的時候，手握兩成以上現金的人，現在是不是笑得很開心？他們手上有子彈，隨時可以在季線附近，從容不迫地去撿那些便宜的『甜甜價』。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "真的耶！手上有現金，遇到大跌才不會慌。那提到撿便宜，這次投信法人似乎動作很大。聽說他們趁著大跌在進行『大換股』，持續買超的那些股票，會不會就是接下來的主流啊？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "沒錯！這點非常關鍵。投信的錢也是有績效壓力的，所以當市場在修正時，他們會毫不猶豫地砍掉那些『展望不如預期』或者『漲過頭』的股票，然後把資金集中到真正有業績支撐、第三季到第四季能大爆發的個股。所以啊，聽眾朋友最近可以去密切追蹤投信的每日買賣超，特別是那種大盤在跌、投信卻『逆勢連買』的標的，那很有可能就是下半年的主升段主角喔！"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "哇，這個觀點太實用了！那另外一個最近非常火熱的話題，就是股市現場節目提到的『Kimi K3 引爆 DS 時刻 2.0』，聽說震撼了全球科技界！這個到底是什麼東東？對我們台股的 AI 鏈有什麼影響嗎？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "噢！這真的很震撼。所謂的『DS 時刻 2.0』，其實就是 DeepSeek 帶動的 AI 智慧代理人（AI Agent）軟體革命。這次 Kimi K3 的突破，代表著 AI 不再只是回答問題的聊天機器人，而是能幫人類處理複雜工作流的智慧助理。這會引爆新一輪的軟體與應用端大爆發！而軟體越強，背後需要的運算力就越恐怖，這對台灣的 AI 伺服器、散熱、還有像是 BBU 電池模組、CPO 光學封裝等硬體供應鏈，反而是更長遠的利多支持！"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "聽你這樣講，感覺台股在 AI 這條路上還是非常有底氣的耶。那針對我們聽眾最關心的個股部分，YunJhe 能不能給我們一些長線和短線的具體操作建議？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "沒問題。長線來看，我還是首推**台積電 (2330)**跟**鴻海 (2317)**。台積電在季線附近，真的是長期投資人很好的分批布局點，防守位置只要看半年線就好。而鴻海因為 GB200 出貨在即，180 到 185 元區間支撐非常強，很適合逢低布局。至於短線搶彈，可以關注跌深的水冷散熱大廠**雙鴻 (3324)**，或者是受惠 AI 應用落地的資訊軟體股，但短線操作一定要嚴守停損，像是破前低或月線就要先出場避風頭。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "明白。那除了台股本身的脈動，我們看 Investing.com 的國際財經新聞，美國那邊好像也有不少雜音。像是阿拉斯加航空因為燃料成本太高，預測獲利低於預期，還有川普的關稅政策，甚至原油庫存意外增加等等。這些國際局勢會不會波及到我們台股？"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "這確實是需要留意的背景干擾。像是燃油成本高漲影響了航空業，這提醒我們原物料報價的波動對終端毛利的殺傷力。而川普的關稅政策和美墨、美加之間的貿易談判，也會讓市場的情緒偏向謹慎。不過，我們也看到像波音、雷神這些軍工巨頭持續拿到國防大單，這顯示全球在特定領域的剛性需求還是很硬。台灣作為全球科技供應鏈的核心，只要電子業基本面夠強，這些國際噪音通常只會造成短期的股價波動，反而常常創造出超跌的買點。"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "懂了！所以關鍵還是要看公司的實質獲利能力，還有手上的資金調配。今天非常謝謝 YunJhe 幫我們做了這麼精闢的分析。各位聽眾朋友，在市場震盪的時候，保持冷靜、控制好持股水位，才是能在股市裡長久獲利的關鍵喔！"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "沒錯，千萬不要盲目跟風追高，設定好自己的停損停利點，穩健操作。祝大家操作順利，我們下次見！"
+    },
+    {
+      "speaker": "HsiaoChen",
+      "text": "謝謝 YunJhe，也謝謝大家的收聽。我們今天的台股焦點與深度聲報就到這邊，大家拜拜！"
+    }
+  ],
+  "date": "2026-07-21",
+  "investing_news": [
+    {
+      "title": "Alaska Air forecasts quarterly profit below expectations as jet fuel prices stay high",
+      "link": "https://www.investing.com/news/stock-market-news/alaska-air-forecasts-quarterly-profit-below-estimates-as-jet-fuel-prices-stay-high-4804287",
+      "pubDate": "2026-07-21 21:43:32",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Coal sector urges Trump admin to provide financing for existing, new power plants",
+      "link": "https://www.investing.com/news/stock-market-news/coal-sector-urges-trump-admin-to-provide-financing-for-existing-new-power-plants-4803991",
+      "pubDate": "2026-07-21 21:43:17",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Judges’ pick for Seattle’s federal prosecutor sues Trump after ouster",
+      "link": "https://www.investing.com/news/stock-market-news/judges-pick-for-seattles-federal-prosecutor-sues-trump-after-ouster-4804338",
+      "pubDate": "2026-07-21 21:43:02",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "US Treasury flags Wall Street tax strategies as potentially abusive, Bloomberg News reports",
+      "link": "https://www.investing.com/news/stock-market-news/us-treasury-flags-wall-street-tax-strategies-as-potentially-abusive-bloomberg-news-reports-4804348",
+      "pubDate": "2026-07-21 21:42:42",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Mexico stocks higher at close of trade; S&P/BMV IPC up 0.88%",
+      "link": "https://www.investing.com/news/stock-market-news/mexico-stocks-higher-at-close-of-trade-spbmv-ipc-up-088-4804336",
+      "pubDate": "2026-07-21 21:30:03",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Boeing wins $43M defense contract for UAE aircraft upgrades",
+      "link": "https://www.investing.com/news/stock-market-news/boeing-wins-43m-defense-contract-for-uae-aircraft-upgrades-93CH-4804335",
+      "pubDate": "2026-07-21 21:28:51",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Interactive Brokers’ quarterly profit leaps on brisk trading",
+      "link": "https://www.investing.com/news/stock-market-news/interactive-brokers-quarterly-profit-leaps-on-brisk-trading-4804332",
+      "pubDate": "2026-07-21 21:26:27",
+      "author": "Reuters (美股新聞)"
+    },
+    {
+      "title": "Raytheon wins $49.7M Navy contract for weapon repairs",
+      "link": "https://www.investing.com/news/stock-market-news/raytheon-wins-497m-navy-contract-for-weapon-repairs-93CH-4804331",
+      "pubDate": "2026-07-21 21:26:27",
+      "author": "Investing.com (美股新聞)"
+    },
+    {
+      "title": "Crude Stock Surplus Surprises Markets, Defying Forecasts",
+      "link": "https://www.investing.com/news/economic-indicators/crude-stock-surplus-surprises-markets-defying-forecasts-93CH-4804250",
+      "pubDate": "2026-07-21 20:44:07",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "US, Mexico resume USMCA trade talks as Trump hits Canada with new tariffs",
+      "link": "https://www.investing.com/news/economic-indicators/us-mexico-resume-usmca-trade-talks-as-trump-hits-canada-with-new-tariffs-4802492",
+      "pubDate": "2026-07-21 19:36:28",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "China’s foreign minister discusses trade balance with EU lawmakers",
+      "link": "https://www.investing.com/news/economic-indicators/chinas-foreign-minister-discusses-trade-balance-with-eu-lawmakers-4803206",
+      "pubDate": "2026-07-21 12:30:42",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "German investor morale rises more than expected in July, ZEW finds",
+      "link": "https://www.investing.com/news/economic-indicators/german-investor-morale-rises-more-than-expected-in-july-zew-finds-4802321",
+      "pubDate": "2026-07-21 10:54:27",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "UK grocery inflation eases to 2.6% in July, lowest since December",
+      "link": "https://www.investing.com/news/economic-indicators/uk-grocery-inflation-eases-to-26-in-july-lowest-since-december-93CH-4801989",
+      "pubDate": "2026-07-21 07:22:16",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "Britain posts £16 billion budget deficit in June",
+      "link": "https://www.investing.com/news/economic-indicators/britain-posts-16-billion-budget-deficit-in-june-93CH-4801933",
+      "pubDate": "2026-07-21 06:48:19",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "UK unemployment rate falls to 4.9% in three months to May",
+      "link": "https://www.investing.com/news/economic-indicators/uk-unemployment-rate-falls-to-49-in-three-months-to-may-4801900",
+      "pubDate": "2026-07-21 06:27:51",
+      "author": "Investing.com (經濟指標)"
+    },
+    {
+      "title": "South Korean economy likely slowed in Q2 after robust Q1 growth: Reuters poll",
+      "link": "https://www.investing.com/news/economic-indicators/south-korean-economy-likely-slowed-in-q2-after-robust-q1-growth-reuters-poll-4801809",
+      "pubDate": "2026-07-21 00:42:47",
+      "author": "Reuters (經濟指標)"
+    },
+    {
+      "title": "Interactive Brokers beats quarterly estimates on trading, interest income strength",
+      "link": "https://www.investing.com/news/earnings/interactive-brokers-posts-record-q2-revenue-as-trading-activity-margin-lending-su-4804150",
+      "pubDate": "2026-07-21 21:16:50",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Range Resources stock slips 3% despite Q2 beat",
+      "link": "https://www.investing.com/news/earnings/range-resources-stock-slips-3-despite-q2-beat-93CH-4804304",
+      "pubDate": "2026-07-21 21:06:22",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "EQT raises 2026 production guidance on strong well performance, shares edge higher",
+      "link": "https://www.investing.com/news/earnings/eqt-raises-2026-production-guidance-on-strong-well-performance-shares-edge-higher-93CH-4804286",
+      "pubDate": "2026-07-21 21:00:25",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Western Alliance reports mixed Q2 results, shares dip slightly",
+      "link": "https://www.investing.com/news/earnings/western-alliance-reports-mixed-q2-results-shares-dip-slightly-93CH-4804278",
+      "pubDate": "2026-07-21 20:56:08",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "Alaska Air posts Q2 loss as fuel costs surge, guides below expectations",
+      "link": "https://www.investing.com/news/earnings/alaska-air-posts-q2-loss-as-fuel-costs-surge-guides-below-expectations-93CH-4804261",
+      "pubDate": "2026-07-21 20:48:09",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "FS Bancorp earnings missed by $0.04, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/fs-bancorp-earnings-missed-by-004-revenue-topped-estimates-4804246",
+      "pubDate": "2026-07-21 20:42:19",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "AAR Corp. shares fall 5% despite topping Q4 estimates",
+      "link": "https://www.investing.com/news/earnings/aar-corp-shares-fall-5-despite-topping-q4-estimates-93CH-4804245",
+      "pubDate": "2026-07-21 20:40:12",
+      "author": "Investing.com (公司盈餘)"
+    },
+    {
+      "title": "EQT earnings missed by $0.03, revenue topped estimates",
+      "link": "https://www.investing.com/news/earnings/eqt-earnings-missed-by-003-revenue-topped-estimates-4804241",
+      "pubDate": "2026-07-21 20:38:34",
+      "author": "Investing.com (公司盈餘)"
+    }
+  ]
+}
