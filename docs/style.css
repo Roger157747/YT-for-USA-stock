@@ -49,11 +49,42 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 24px 30px;
     border-radius: 20px;
-    background: rgba(18, 22, 38, 0.4);
+    background: rgba(18, 22, 38, 0.45);
     border: 1px solid var(--card-border);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(16px);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.app-header > * {
+    position: relative;
+    z-index: 2;
+}
+
+.app-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(to right, rgba(9, 11, 17, 0.9) 0%, rgba(18, 22, 38, 0.25) 50%, rgba(9, 11, 17, 0.9) 100%),
+        url('bull_banner.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-header:hover::before {
+    opacity: 0.55;
+    transform: scale(1.03);
 }
 
 .logo {
