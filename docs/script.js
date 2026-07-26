@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update UI Titles and Layout based on market
             if (currentMarket === 'us') {
                 cardRecommend.style.display = 'none';
-                titleAnalysis.innerHTML = '<i class="fa-solid fa-chart-pie"></i> 股市與產業分析 (Stock & Industry Analysis)';
+                titleAnalysis.innerHTML = '<i class="fa-solid fa-chart-pie"></i> 指數及產業板塊分析 (Index & Sector Analysis)';
                 titleFlow.innerHTML = '<i class="fa-solid fa-money-bill-transfer"></i> 資金流向 (Fund Flow)';
                 titleAdvice.innerHTML = '<i class="fa-solid fa-gem"></i> 長線投資方向建議 (Long-term Advice)';
                 
