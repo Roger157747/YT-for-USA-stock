@@ -222,10 +222,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 recommendText.innerHTML = formatMarkdown(data.written_report.stock_recommendations);
             }
             
+            // Apply auto-linking on report text cards
+            autoLinkStocksInElement(analysisText);
+            autoLinkStocksInElement(flowText);
+            autoLinkStocksInElement(adviceText);
+            if (currentMarket === 'tw') {
+                autoLinkStocksInElement(recommendText);
+            }
+            
             reportDate.innerHTML = `<i class="fa-regular fa-clock"></i> 發表日期：${data.date}`;
 
-            // Populate News
-            populateNewsList(data.investing_news || []);
+            // Populate News/Podcast Shows
+            populateNewsList(data.finance_shows || data.investing_news || []);
 
             // Setup Audio Source
             audio.src = audioUrl;
@@ -246,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
             flowText.textContent = "";
             adviceText.textContent = "";
             recommendText.textContent = "";
-            newsListContainer.innerHTML = '<div class="news-loading"><i class="fa-solid fa-circle-exclamation"></i> 無法載入當日頭條新聞</div>';
+            newsListContainer.innerHTML = '<div class="news-loading"><i class="fa-solid fa-circle-exclamation"></i> 無法載入當日影音內容</div>';
             newsCountBadge.textContent = '0 則';
         }
     }
@@ -257,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
         flowText.innerHTML = "";
         adviceText.innerHTML = "";
         recommendText.innerHTML = "";
-        newsListContainer.innerHTML = '<div class="news-loading"><i class="fa-solid fa-circle-notch fa-spin"></i> 載入新聞中...</div>';
+        newsListContainer.innerHTML = '<div class="news-loading"><i class="fa-solid fa-circle-notch fa-spin"></i> 載入影音內容中...</div>';
     }
 
     function populateNewsList(newsItems) {
@@ -265,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
         newsCountBadge.textContent = `${newsItems.length} 則`;
 
         if (newsItems.length === 0) {
-            newsListContainer.innerHTML = '<div class="news-loading">當日無抓取到 Investing.com 新聞</div>';
+            newsListContainer.innerHTML = '<div class="news-loading">當日無抓取到影音與 Podcast 內容</div>';
             return;
         }
 
@@ -273,20 +281,47 @@ document.addEventListener('DOMContentLoaded', () => {
             const newsItem = document.createElement('div');
             newsItem.className = 'news-item';
             
-            // Extract clean title and link
+            // Extract clean title, link, date, source and summary
             const title = item.title || '無標題';
             const link = item.link || '#';
             const pubDate = item.pubDate || '--';
-            const source = item.author || 'Investing.com';
+            const source = item.show || item.author || '未知來源';
+            const summary = item.summary || '';
             
+            // Render stock tags if available
+            const stocksHtml = (item.stocks && item.stocks.length > 0)
+                ? `<div class="news-item-stocks">
+                     <strong><i class="fa-solid fa-tags"></i> 探討個股：</strong>
+                     <div class="stock-tags">
+                       ${item.stocks.map(s => `<a href="${getStockUrl(s)}" target="_blank" rel="noopener noreferrer" class="stock-tag">${s}</a>`).join('')}
+                     </div>
+                   </div>`
+                : '';
+
+            // Render discussed issues list if available
+            const issuesHtml = (item.issues && item.issues.length > 0)
+                ? `<div class="news-item-issues">
+                     <strong><i class="fa-solid fa-lightbulb"></i> 討論議題：</strong>
+                     <ul>
+                       ${item.issues.map(issue => `<li>${issue}</li>`).join('')}
+                     </ul>
+                   </div>`
+                : '';
+
             newsItem.innerHTML = `
                 <a href="${link}" target="_blank" rel="noopener noreferrer" class="news-item-title">${title}</a>
+                ${stocksHtml}
+                ${issuesHtml}
+                ${summary ? `<div class="news-item-summary"><strong><i class="fa-solid fa-align-left"></i> 內容摘要：</strong><p>${summary}</p></div>` : ''}
                 <div class="news-item-footer">
-                    <span class="news-item-source"><i class="fa-solid fa-globe"></i> ${source}</span>
+                    <span class="news-item-source"><i class="fa-solid fa-microphone"></i> ${source}</span>
                     <span><i class="fa-regular fa-clock"></i> ${pubDate}</span>
                 </div>
             `;
             newsListContainer.appendChild(newsItem);
+            
+            // Apply auto-linking on this news item for any stock names mentioned in other fields
+            autoLinkStocksInElement(newsItem);
         });
     }
 
@@ -302,6 +337,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
         // Bold formatting **text** -> <strong>text</strong>
         clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        
+        // Convert markdown links [text](url) -> <a href="url" target="_blank" rel="noopener noreferrer">text</a>
+        clean = clean.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
         
         // Convert unordered list items starting with - or *
         let lines = clean.split('\n');
@@ -370,6 +408,194 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tabUs.addEventListener('click', () => switchMarket('us'));
     tabTw.addEventListener('click', () => switchMarket('tw'));
+
+    // Get stock quote URL by stock name or ticker
+    function getStockUrl(stockName) {
+        const twMatch = stockName.match(/\b\d{4}\b/);
+        if (twMatch) {
+            return `https://tw.stock.yahoo.com/quote/${twMatch[0]}.TW`;
+        }
+        
+        const twNames = ["台積電", "鴻海", "聯發科", "廣達", "緯創", "台達電", "華碩", "仁寶", "日月光", "富邦金", "國泰金", "中信金", "聯電", "技嘉", "微星", "奇鋐", "雙鴻", "世芯", "創意", "信驊", "力積電", "世界先進"];
+        for (const name of twNames) {
+            if (stockName.includes(name)) {
+                const codes = {
+                    "台積電": "2330", "鴻海": "2317", "聯發科": "2454", "廣達": "2382",
+                    "緯創": "3231", "台達電": "2308", "華碩": "2357", "仁寶": "2324",
+                    "日月光": "3711", "富邦金": "2881", "國泰金": "2882", "中信金": "2891",
+                    "聯電": "2303", "技嘉": "2376", "微星": "2377", "奇鋐": "3017",
+                    "雙鴻": "3324", "世芯": "3661", "創意": "3443", "信驊": "5274",
+                    "力積電": "6770", "世界先進": "5347"
+                };
+                return `https://tw.stock.yahoo.com/quote/${codes[name]}.TW`;
+            }
+        }
+        
+        const usTickers = ["AAPL", "NVDA", "TSLA", "MSFT", "AMZN", "GOOGL", "GOOG", "META", "AMD", "AVGO", "QCOM", "INTC", "MU", "ASML", "NFLX", "TSM"];
+        for (const ticker of usTickers) {
+            if (stockName.toUpperCase().includes(ticker)) {
+                return `https://finance.yahoo.com/quote/${ticker}`;
+            }
+        }
+        
+        const usNames = {
+            "輝達": "NVDA", "英偉達": "NVDA", "蘋果": "AAPL", "特斯拉": "TSLA", "微軟": "MSFT", "亞馬遜": "AMZN",
+            "谷歌": "GOOGL", "Google": "GOOGL", "臉書": "META", "Meta": "META", "超微": "AMD",
+            "博通": "AVGO", "高通": "QCOM", "英特爾": "INTC", "美光": "MU", "艾司摩爾": "ASML",
+            "網飛": "NFLX"
+        };
+        for (const name in usNames) {
+            if (stockName.includes(name)) {
+                return `https://finance.yahoo.com/quote/${usNames[name]}`;
+            }
+        }
+        
+        return `https://finance.yahoo.com/lookup?s=${encodeURIComponent(stockName)}`;
+    }
+
+    // Auto-link any stock names in DOM elements safely
+    function autoLinkStocksInElement(element) {
+        if (!element) return;
+        
+        const stocksToLink = [
+            { name: "台積電", code: "2330", tw: true },
+            { name: "聯發科", code: "2454", tw: true },
+            { name: "日月光投控", code: "3711", tw: true },
+            { name: "日月光", code: "3711", tw: true },
+            { name: "力積電", code: "6770", tw: true },
+            { name: "世界先進", code: "5347", tw: true },
+            { name: "世芯-KY", code: "3661", tw: true },
+            { name: "世芯", code: "3661", tw: true },
+            { name: "台達電", code: "2308", tw: true },
+            { name: "富邦金", code: "2881", tw: true },
+            { name: "國泰金", code: "2882", tw: true },
+            { name: "中信金", code: "2891", tw: true },
+            { name: "鴻海", code: "2317", tw: true },
+            { name: "廣達", code: "2382", tw: true },
+            { name: "緯創", code: "3231", tw: true },
+            { name: "華碩", code: "2357", tw: true },
+            { name: "仁寶", code: "2324", tw: true },
+            { name: "聯電", code: "2303", tw: true },
+            { name: "技嘉", code: "2376", tw: true },
+            { name: "微星", code: "2377", tw: true },
+            { name: "奇鋐", code: "3017", tw: true },
+            { name: "雙鴻", code: "3324", tw: true },
+            { name: "創意", code: "3443", tw: true },
+            { name: "信驊", code: "5274", tw: true },
+            
+            { name: "特斯拉", ticker: "TSLA" },
+            { name: "特斯勒", ticker: "TSLA" },
+            { name: "蘋果", ticker: "AAPL" },
+            { name: "微軟", ticker: "MSFT" },
+            { name: "亞馬遜", ticker: "AMZN" },
+            { name: "輝達", ticker: "NVDA" },
+            { name: "英偉達", ticker: "NVDA" },
+            { name: "谷歌", ticker: "GOOGL" },
+            { name: "Google", ticker: "GOOGL" },
+            { name: "Meta", ticker: "META" },
+            { name: "臉書", ticker: "META" },
+            { name: "超微", ticker: "AMD" },
+            { name: "博通", ticker: "AVGO" },
+            { name: "高通", ticker: "QCOM" },
+            { name: "英特爾", ticker: "INTC" },
+            { name: "美光", ticker: "MU" },
+            { name: "艾司摩爾", ticker: "ASML" },
+            { name: "網飛", ticker: "NFLX" },
+            
+            { name: "AAPL", ticker: "AAPL" },
+            { name: "NVDA", ticker: "NVDA" },
+            { name: "TSLA", ticker: "TSLA" },
+            { name: "MSFT", ticker: "MSFT" },
+            { name: "AMZN", ticker: "AMZN" },
+            { name: "GOOGL", ticker: "GOOGL" },
+            { name: "GOOG", ticker: "GOOGL" },
+            { name: "META", ticker: "META" },
+            { name: "AMD", ticker: "AMD" },
+            { name: "AVGO", ticker: "AVGO" },
+            { name: "QCOM", ticker: "QCOM" },
+            { name: "INTC", ticker: "INTC" },
+            { name: "MU", ticker: "MU" },
+            { name: "ASML", ticker: "ASML" },
+            { name: "NFLX", ticker: "NFLX" },
+            { name: "TSM", ticker: "TSM" }
+        ];
+
+        function traverse(node) {
+            if (node.nodeName === 'A' || node.nodeName === 'BUTTON' || node.nodeName === 'SCRIPT' || node.nodeName === 'STYLE') return;
+            
+            if (node.nodeType === Node.TEXT_NODE) {
+                const text = node.textContent;
+                let replaced = false;
+                
+                const esc = s => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+                const patternParts = stocksToLink.map(item => {
+                    if (/^[A-Z0-9]+$/i.test(item.name)) {
+                        return `\\b${esc(item.name)}\\b`;
+                    } else {
+                        return esc(item.name);
+                    }
+                });
+                
+                patternParts.push(`(?<!\\d)(2330|2317|2454|2382|3231|2308|2357|2324|3711|2881|2882|2891|2303|2376|2377|3017|3324|3661|3443|5274|6770|5347)(?!\\d)`);
+                
+                const regex = new RegExp(`(${patternParts.join('|')})`, 'g');
+                let match;
+                let lastIndex = 0;
+                const parent = node.parentNode;
+                const docFragment = document.createDocumentFragment();
+                
+                while ((match = regex.exec(text)) !== null) {
+                    replaced = true;
+                    const matchText = match[1];
+                    const matchIndex = match.index;
+                    
+                    if (matchIndex > lastIndex) {
+                        docFragment.appendChild(document.createTextNode(text.substring(lastIndex, matchIndex)));
+                    }
+                    
+                    let url = '';
+                    if (/^\d{4}$/.test(matchText)) {
+                        url = `https://tw.stock.yahoo.com/quote/${matchText}.TW`;
+                    } else {
+                        const found = stocksToLink.find(x => x.name.toLowerCase() === matchText.toLowerCase());
+                        if (found) {
+                            if (found.tw) {
+                                url = `https://tw.stock.yahoo.com/quote/${found.code}.TW`;
+                            } else {
+                                url = `https://finance.yahoo.com/quote/${found.ticker}`;
+                            }
+                        } else {
+                            url = `https://finance.yahoo.com/lookup?s=${encodeURIComponent(matchText)}`;
+                        }
+                    }
+                    
+                    const anchor = document.createElement('a');
+                    anchor.href = url;
+                    anchor.target = "_blank";
+                    anchor.rel = "noopener noreferrer";
+                    anchor.className = "auto-stock-link";
+                    anchor.textContent = matchText;
+                    docFragment.appendChild(anchor);
+                    
+                    lastIndex = regex.lastIndex;
+                }
+                
+                if (replaced) {
+                    if (lastIndex < text.length) {
+                        docFragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+                    }
+                    parent.replaceChild(docFragment, node);
+                }
+            } else {
+                const children = Array.from(node.childNodes);
+                for (const child of children) {
+                    traverse(child);
+                }
+            }
+        }
+        
+        traverse(element);
+    }
 
     // Initialize App
     initApp();

@@ -9,6 +9,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 import yt_dlp
 import google.generativeai as genai
+from email.utils import parsedate_to_datetime
 
 # Enable standard output encoding for Chinese characters in Windows terminal
 sys.stdout.reconfigure(encoding='utf-8')
@@ -283,54 +284,147 @@ def get_taiwan_shows_data():
     return scraped_data
 
 
-# --- Investing.com RSS Feed Scraper ---
+# --- Popular Finance Shows RSS Feed Scraper ---
 
+def parse_date_to_string(date_str):
+    try:
+        dt = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+        return dt.strftime("%Y/%m/%d")
+    except Exception:
+        try:
+            dt = parsedate_to_datetime(date_str)
+            return dt.strftime("%Y/%m/%d")
+        except Exception:
+            return date_str[:10]
 
-def fetch_investing_news():
-    """Parse Investing.com RSS feeds and extract news item headlines and links."""
-    print("\n--- Scraping Investing.com News Feeds ---")
-    urls = {
-        '美股新聞': 'https://www.investing.com/rss/news_25.rss',
-        '經濟指標': 'https://www.investing.com/rss/news_95.rss',
-        '公司盈餘': 'https://www.investing.com/rss/news_1062.rss'
+def fetch_finance_shows_news():
+    """Fetch latest uploads from popular Taiwanese/US finance shows (Podcast & YouTube)."""
+    print("\n--- Fetching Finance Shows Uploads ---")
+    podcast_feeds = {
+        "股癌": "https://feeds.soundon.fm/podcasts/954689a5-3096-43a4-a80b-7810b219cef3.xml",
+        "財報狗-掌握台股美股時事議題": "https://feed.firstory.me/rss/user/clcftm46z000201z45w1c47fi",
+        "CNBC Business News Update": "https://feeds.simplecast.com/oloBAvaH",
+        "財經一路發": "https://feed.firstory.me/rss/user/ckuydilxj0ys508026gxkhbp4",
+        "財富旺得福": "https://feed.firstory.me/rss/user/clz7uus5t0000ixvp9jpg3kv5"
     }
+    youtube_feeds = {
+        "只要錢長大": {
+            "channel_id": "UCJcPWs0gpYMx_CghPdELUhw",
+            "filter": "只要錢長大"
+        },
+        "財經號角": {
+            "channel_id": "UC0lbAQVpenvfA2QqzsRtL_g",
+            "filter": None
+        },
+        "財訊": {
+            "channel_id": "UCh2hilgoPIY-kiy1yFCc-xA",
+            "filter": None
+        }
+    }
+    
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     }
-    news_items = []
     
-    for category, url in urls.items():
+    shows_data = []
+    
+    # 1. Fetch Podcast RSS
+    for show, url in podcast_feeds.items():
         try:
-            print(f"Fetching: {category} ({url})")
-            r = requests.get(url, headers=headers, timeout=15)
+            print(f"Fetching Podcast RSS for: {show}")
+            r = requests.get(url, headers=headers, timeout=10)
             if r.status_code == 200:
                 root = ET.fromstring(r.content)
-                items = root.findall('.//item')
-                print(f"Found {len(items)} items in {category}")
-                for item in items[:8]:  # Get top 8 items per category
+                item = root.find('.//item')
+                if item is not None:
                     title = item.find('title').text if item.find('title') is not None else ''
-                    link = item.find('link').text if item.find('link') is not None else ''
-                    pubDate = item.find('pubDate').text if item.find('pubDate') is not None else ''
-                    author = item.find('author').text if item.find('author') is not None else 'Investing.com'
+                    link = item.find('link').text if item.find('link') is not None else url
+                    pub_date_raw = item.find('pubDate').text if item.find('pubDate') is not None else ''
+                    pub_date = parse_date_to_string(pub_date_raw)
                     
-                    if title:
-                        news_items.append({
-                            'title': title,
-                            'link': link,
-                            'pubDate': pubDate,
-                            'author': f"{author} ({category})"
-                        })
+                    desc = ""
+                    desc_elem = item.find('description')
+                    if desc_elem is not None and desc_elem.text:
+                        desc = desc_elem.text
+                    else:
+                        itunes_sum = item.find('.//{http://www.itunes.com/dtds/podcast-1.0.dtd}summary')
+                        if itunes_sum is not None and itunes_sum.text:
+                            desc = itunes_sum.text
+                    
+                    desc = re.sub(r'<[^>]+>', '', desc)
+                    desc = re.sub(r'\s+', ' ', desc).strip()
+                    
+                    shows_data.append({
+                        "show": show,
+                        "title": title,
+                        "link": link,
+                        "pubDate": pub_date,
+                        "rawDescription": desc[:800]
+                    })
+                else:
+                    print(f"No item found for {show}")
             else:
-                print(f"Failed to fetch {category}, Status: {r.status_code}")
+                print(f"Failed to fetch podcast {show}: {r.status_code}")
         except Exception as e:
-            print(f"Error parsing RSS {category}: {e}")
+            print(f"Error parsing podcast feed {show}: {e}")
             
-    return news_items
+    # 2. Fetch YouTube RSS
+    for show, config in youtube_feeds.items():
+        try:
+            print(f"Fetching YouTube RSS for: {show}")
+            url = f"https://www.youtube.com/feeds/videos.xml?channel_id={config['channel_id']}"
+            r = requests.get(url, headers=headers, timeout=10)
+            if r.status_code == 200:
+                root = ET.fromstring(r.content)
+                ns = {'atom': 'http://www.w3.org/2005/Atom'}
+                entries = root.findall('.//atom:entry', ns)
+                
+                matched_entry = None
+                if config['filter']:
+                    for entry in entries:
+                        title_elem = entry.find('atom:title', ns)
+                        if title_elem is not None and config['filter'] in title_elem.text:
+                            matched_entry = entry
+                            break
+                else:
+                    if len(entries) > 0:
+                        matched_entry = entries[0]
+                        
+                if matched_entry is not None:
+                    title = matched_entry.find('atom:title', ns).text
+                    link = matched_entry.find('atom:link', ns).attrib['href']
+                    pub_date_raw = matched_entry.find('atom:published', ns).text
+                    pub_date = parse_date_to_string(pub_date_raw)
+                    
+                    media_ns = {'media': 'http://search.yahoo.com/mrss/'}
+                    desc = ""
+                    media_desc = matched_entry.find('.//media:description', media_ns)
+                    if media_desc is not None and media_desc.text:
+                        desc = media_desc.text
+                        
+                    desc = re.sub(r'<[^>]+>', '', desc)
+                    desc = re.sub(r'\s+', ' ', desc).strip()
+                    
+                    shows_data.append({
+                        "show": show,
+                        "title": title,
+                        "link": link,
+                        "pubDate": pub_date,
+                        "rawDescription": desc[:800]
+                    })
+                else:
+                    print(f"No matched entry found for YouTube: {show}")
+            else:
+                print(f"Failed to fetch YouTube RSS for {show}: {r.status_code}")
+        except Exception as e:
+            print(f"Error parsing YouTube RSS {show}: {e}")
+            
+    return shows_data
 
 
 # --- Gemini Analysis & Script Generator ---
 
-def generate_insights_and_podcast(scraped_videos, news_items):
+def generate_insights_and_podcast(scraped_videos, finance_shows):
     """Aggregate data and call Gemini API to generate the report and dialogue JSON."""
     print("\n--- Sending request to Google Gemini API ---")
     
@@ -347,21 +441,25 @@ def generate_insights_and_podcast(scraped_videos, news_items):
             videos_text += "（無字幕，以標題和描述分析）\n"
         videos_text += "-" * 30
         
-    # Format News data for prompt
-    news_text = ""
-    for idx, n in enumerate(news_items):
-        news_text += f"- {n['title']} (來源: {n['author']}, 時間: {n['pubDate']})\n"
+    # Format Finance Shows data for prompt
+    shows_text = ""
+    for idx, s in enumerate(finance_shows):
+        shows_text += f"\n【節目來源: {s['show']}】\n"
+        shows_text += f"單集標題: {s['title']}\n"
+        shows_text += f"發布日期: {s['pubDate']}\n"
+        shows_text += f"節目資訊與描述: {s['rawDescription']}\n"
+        shows_text += "-" * 30
 
     # Assemble complete prompt
     prompt = f"""
 你是一個資深的美股分析與產業專家，同時也是一位極具創意與人氣的 Podcast 製作人。
-請仔細閱讀並整合以下收集到的當日最新美股市場資訊（包含 CNBC 和 IBD 節目音軌字幕摘要、Investing.com 當日即時財經頭條與盈餘數據）：
+請仔細閱讀並整合以下收集到的當日最新美股市場資訊（包含 CNBC 和 IBD 節目音軌字幕摘要、熱門財經 YouTube 與 Podcast 節目的最新描述與標題）：
 
 【YouTube 美股節目字幕/摘要】
 {videos_text}
 
-【Investing.com 財經頭條】
-{news_text}
+【熱門財經影音最新單集資訊】
+{shows_text}
 
 =========================================
 
@@ -375,6 +473,17 @@ def generate_insights_and_podcast(scraped_videos, news_items):
     "fund_flow": "資金流向內容（繁體中文，格式請使用 Markdown。需分析板塊輪動、避險情緒、法人機構動向與市場成交量討論）",
     "investment_advice": "長線投資建議內容（繁體中文，格式請使用 Markdown。需包含長期資產配置趨勢、可關注標的之技術與基本面建議）"
   }},
+  "finance_shows": [
+    {{
+      "show": "節目來源名稱（字串，例如：股癌、財報狗-掌握台股美股時事議題、CNBC Business News Update、財經一路發、財富旺得福、只要錢長大、財經號角、財訊）",
+      "title": "單集原標題（字串，直接沿用上方提供的單集標題，絕對不要做任何日期前綴修改，不要包含日期）",
+      "link": "該節目的連結（字串，沿用提供給你的連結）",
+      "pubDate": "發布日期（字串，格式為 YYYY/MM/DD）",
+      "stocks": ["主要探討個股代碼/名稱1", "主要探討個股代碼/名稱2"...], // 陣列，提取該單集核心探討的所有個股，包含美股代號如 輝達 (NVDA)、蘋果 (AAPL) 或台股如 台積電 (2330)。若無提到個股則為空陣列。
+      "issues": ["主要探討經濟與投資議題1", "主要探討經濟與投資議題2"...], // 陣列，提取該單集核心討論之股票、總體經濟、財報或投資議題（如：AI晶片需求放緩、美聯儲降息決議等）。
+      "summary": "以繁體中文針對該單集標題與描述進行內容重點整理（字串，限 50 到 100 字，言簡意賅地敘述出該集的核心議題或觀點）。注意：請將『[月/日] 集數編號』（例如：『[07/25] EP682』；若是無集數編號的節目，請以『[月/日] 節目名稱』前綴，例如『[07/25] 只要錢長大』）顯示在 summary 文字描述的最前面，不要顯示在 title 上"
+    }}
+  ],
   "podcast_script": [
     {{
       "speaker": "HsiaoChen",
@@ -392,21 +501,18 @@ def generate_insights_and_podcast(scraped_videos, news_items):
 【關鍵細節要求】
 1. **繁體中文與台灣常用用語**：報告和對話中請務必使用台灣的財經與口語用語。例如：『板塊』可寫為『板塊類股』，並使用『升息/降息』、『季報/財報』、『指數/均線』。
 2. **台灣腔口語發音語助詞**：對話必須像真實的台灣人對話，自然融入語助詞，如『對啊』、『沒錯』、『我覺得說...』、『像是...』、『這樣子』、『真的耶』。
-3. **表情停頓與語調引導（極重要）**：對話文字中請適當多使用標點符號（如逗號『，』、頓號『、』、省略號『……』或空格）來引導語音引擎產生自然停頓，避免語氣聽起來過於機械化或機械式地一口氣唸完。
-4. **角色名稱限制**：對話劇本的 `speaker` 欄位值僅能為 `"HsiaoChen"` (代表女聲主播) 與 `"YunJhe"` (代表男聲專家)，這與後續 TTS 的配音模型直接關聯。
+3. **表情停頓與語調引導（極重要）**：對話文字中請適當多使用標點符號（如逗號『，』、頓號『、』、省略號『……』或空格）來引導語音引擎產生自然停頓，避免語氣聽起來過於機械化或機械式地一口氣念完。
+4. **角色名稱限制**：對話劇本的 `speaker` 欄位值僅能為 `"HsiaoChen"` 與 `"YunJhe"`。
 """
 
-    api_key = os.environ.get("GEMINI_API_KEY")
-    if not api_key:
-        print("Error: GEMINI_API_KEY environment variable is missing!")
-        sys.exit(1)
-        
-    genai.configure(api_key=api_key)
-    
-    # Use gemini-3.5-flash for compatibility and speed
-    model = genai.GenerativeModel("gemini-3.5-flash")
-    
     try:
+        api_key = os.environ.get("GEMINI_API_KEY")
+        if not api_key:
+            raise ValueError("GEMINI_API_KEY environment variable is missing!")
+            
+        genai.configure(api_key=api_key)
+        model = genai.GenerativeModel("gemini-3.5-flash")
+        
         response = model.generate_content(
             prompt,
             generation_config={"response_mime_type": "application/json"}
@@ -417,6 +523,19 @@ def generate_insights_and_podcast(scraped_videos, news_items):
     except Exception as e:
         print(f"Error calling or parsing Gemini API: {e}")
         # Fallback dictionary if API fails
+        fallback_shows = []
+        for s in finance_shows:
+            ep_match = re.search(r'EP\d+', s['title'])
+            prefix = ep_match.group(0) if ep_match else s['show']
+            fallback_shows.append({
+                "show": s['show'],
+                "title": s['title'],
+                "link": s['link'],
+                "pubDate": s['pubDate'],
+                "stocks": [],
+                "issues": [],
+                "summary": f"[{s['pubDate'][5:]}] {prefix} 重點整理：內容獲取暫時失敗，請至原影音連結觀看。"
+            })
         return {
             "title": f"美股每日聲報 ({datetime.now().strftime('%Y-%m-%d')})",
             "written_report": {
@@ -424,14 +543,15 @@ def generate_insights_and_podcast(scraped_videos, news_items):
                 "fund_flow": "目前無資金流動資料。",
                 "investment_advice": "目前無建議。"
             },
+            "finance_shows": fallback_shows,
             "podcast_script": [
                 {"speaker": "HsiaoChen", "text": "不好意思，今天我們的 AI 生成系統遇到了一些問題，請明天再收聽我們的精彩解析！"},
-                {"speaker": "YunJhe", "text": "對啊，大家先看看 Investing.com 的頭條新聞，祝大家投資順利！"}
+                {"speaker": "YunJhe", "text": "對啊，大家先看看各影音節目的最新內容，祝大家投資順利！"}
             ]
         }
 
 
-def generate_taiwan_insights_and_podcast(scraped_videos, news_items):
+def generate_taiwan_insights_and_podcast(scraped_videos, finance_shows):
     """Aggregate Taiwan data and call Gemini API to generate the Taiwan stock report and dialogue JSON."""
     print("\n--- Sending Taiwan request to Google Gemini API ---")
     
@@ -448,21 +568,25 @@ def generate_taiwan_insights_and_podcast(scraped_videos, news_items):
             videos_text += "（無字幕，以標題和描述分析）\n"
         videos_text += "-" * 30
         
-    # Format News data for prompt
-    news_text = ""
-    for idx, n in enumerate(news_items):
-        news_text += f"- {n['title']} (來源: {n['author']}, 時間: {n['pubDate']})\n"
+    # Format Finance Shows data for prompt
+    shows_text = ""
+    for idx, s in enumerate(finance_shows):
+        shows_text += f"\n【節目來源: {s['show']}】\n"
+        shows_text += f"單集標題: {s['title']}\n"
+        shows_text += f"發布日期: {s['pubDate']}\n"
+        shows_text += f"節目資訊與描述: {s['rawDescription']}\n"
+        shows_text += "-" * 30
 
     # Assemble complete prompt
     prompt = f"""
 你是一個資深的台股分析與產業專家，同時也是一位極具創意與人氣的 Podcast 製作人。
-請仔細閱讀並整合以下收集到的當日/前一日最新台股市場資訊（包含非凡錢線百分百和股市現場節目音軌字幕摘要、Investing.com 當日即時財經新聞）：
+請仔細閱讀並整合以下收集到的當日/前一日最新台股市場資訊（包含非凡錢線百分百和股市現場節目音軌字幕摘要、熱門財經 YouTube 與 Podcast 節目的最新描述與標題）：
 
 【YouTube 台股節目字幕/摘要】
 {videos_text}
 
-【Investing.com 財經頭條】
-{news_text}
+【熱門財經影音最新單集資訊】
+{shows_text}
 
 =========================================
 
@@ -477,6 +601,17 @@ def generate_taiwan_insights_and_podcast(scraped_videos, news_items):
     "fund_flow": "資金流向內容（繁體中文，格式請使用 Markdown。需分析外資、投信、自營商三大法人買賣超動向、融資融券變化、市場成交量能變化與避險情緒討論）",
     "stock_recommendations": "長、短線個股推薦（繁體中文，格式請使用 Markdown。需具體列出適合長線佈局與短線操作的潛力個股，並簡要分析其基本面利基、技術面進出場點位與防守停損位置）"
   }},
+  "finance_shows": [
+    {{
+      "show": "節目來源名稱（字串，例如：股癌、財報狗-掌握台股美股時事議題、CNBC Business News Update、財經一路發、財富旺得福、只要錢長大、財經號角、財訊）",
+      "title": "單集原標題（字串，直接沿用上方提供的單集標題，絕對不要做任何日期前綴修改，不要包含日期）",
+      "link": "該節目的連結（字串，沿用提供給你的連結）",
+      "pubDate": "發布日期（字串，格式為 YYYY/MM/DD）",
+      "stocks": ["主要探討個股代碼/名稱1", "主要探討個股代碼/名稱2"...], // 陣列，提取該單集核心探討的所有個股，包含台股代號如 台積電 (2330)、鴻海 (2317) 等。若無提到個股則為空陣列。
+      "issues": ["主要探討經濟與投資議題1", "主要探討經濟與投資議題2"...], // 陣列，提取該單集核心討論之股票、總體經濟、財報或投資議題。
+      "summary": "以繁體中文針對該單集標題與描述進行內容重點整理（字串，限 50 到 100 字，言簡意賅地敘述出該集的核心議題或觀點）。注意：請將『[月/日] 集數編號』（例如：『[07/25] EP682』；若是無集數編號的節目，請以『[月/日] 節目名稱』前綴，例如『[07/25] 只要錢長大』）顯示在 summary 文字描述的最前面，不要顯示在 title 上"
+    }}
+  ],
   "podcast_script": [
     {{
       "speaker": "HsiaoChen",
@@ -495,18 +630,17 @@ def generate_taiwan_insights_and_podcast(scraped_videos, news_items):
 1. **繁體中文與台灣常用財經用語**：報告和對話中請務必使用台灣的財經與口語用語。例如：『加權指數』、『櫃買指數』、『法人買賣超』、『季線/半年線/年線』、『除權息』、『個股推薦』。
 2. **台灣腔口語發音語助詞**：對話必須像真實的台灣人對話，自然融入語助詞，如『對啊』、『沒錯』、『我覺得說...』、『像是...』、『這樣子』、『真的耶』、『吼』。
 3. **表情停頓與語調引導（極重要）**：對話文字中請適當多使用標點符號（如逗號『，』、頓號『、』、省略號『……』或空格）來引導語音引擎產生自然停頓，避免語氣聽起來過於機械化。
-4. **角色名稱限制**：對話劇本的 `speaker` 欄位值僅能為 `"HsiaoChen"` (代表女聲主播) 與 `"YunJhe"` (代表男聲專家)。
+4. **角色名稱限制**：對話劇本的 `speaker` 欄位值僅能為 `"HsiaoChen"` 與 `"YunJhe"`。
 """
 
-    api_key = os.environ.get("GEMINI_API_KEY")
-    if not api_key:
-        print("Error: GEMINI_API_KEY environment variable is missing!")
-        sys.exit(1)
-        
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel("gemini-3.5-flash")
-    
     try:
+        api_key = os.environ.get("GEMINI_API_KEY")
+        if not api_key:
+            raise ValueError("GEMINI_API_KEY environment variable is missing!")
+            
+        genai.configure(api_key=api_key)
+        model = genai.GenerativeModel("gemini-3.5-flash")
+        
         response = model.generate_content(
             prompt,
             generation_config={"response_mime_type": "application/json"}
@@ -516,6 +650,19 @@ def generate_taiwan_insights_and_podcast(scraped_videos, news_items):
         return data
     except Exception as e:
         print(f"Error calling or parsing Gemini API for Taiwan: {e}")
+        fallback_shows = []
+        for s in finance_shows:
+            ep_match = re.search(r'EP\d+', s['title'])
+            prefix = ep_match.group(0) if ep_match else s['show']
+            fallback_shows.append({
+                "show": s['show'],
+                "title": s['title'],
+                "link": s['link'],
+                "pubDate": s['pubDate'],
+                "stocks": [],
+                "issues": [],
+                "summary": f"[{s['pubDate'][5:]}] {prefix} 重點整理：內容獲取暫時失敗，請至原影音連結觀看。"
+            })
         return {
             "title": f"台股每日分析 ({datetime.now().strftime('%Y-%m-%d')})",
             "written_report": {
@@ -524,9 +671,10 @@ def generate_taiwan_insights_and_podcast(scraped_videos, news_items):
                 "fund_flow": "目前無三大法人資金流動資料。",
                 "stock_recommendations": "目前無個股推薦。"
             },
+            "finance_shows": fallback_shows,
             "podcast_script": [
                 {"speaker": "HsiaoChen", "text": "不好意思，今天我們的台股 AI 生成系統遇到了一些問題，請明天再收聽我們的精彩解析！"},
-                {"speaker": "YunJhe", "text": "對啊，大家先看看相關財經新聞，祝大家操作順利！"}
+                {"speaker": "YunJhe", "text": "對啊，大家先看看相關影音內容，祝大家操作順利！"}
             ]
         }
 
@@ -543,11 +691,25 @@ async def generate_voice_chunk(text, voice, output_path):
 
 
 async def generate_all_voices(script, temp_dir):
-    """Generate individual voice mp3 files in parallel."""
+    """Generate individual voice mp3 files with controlled concurrency to avoid rate limiting."""
     print("Generating voice audio chunks...")
+    semaphore = asyncio.Semaphore(2)  # Limit to 2 concurrent tasks
+    
+    async def generate_with_retry(text, voice, out_path, turn_idx):
+        async with semaphore:
+            for attempt in range(3):
+                try:
+                    await generate_voice_chunk(text, voice, out_path)
+                    return
+                except Exception as e:
+                    if attempt == 2:
+                        print(f"❌ Final attempt failed for turn {turn_idx}: {e}")
+                        raise e
+                    print(f"⚠️ Error generating turn {turn_idx} (attempt {attempt+1}): {e}. Retrying in 1.5s...")
+                    await asyncio.sleep(1.5)
+
     tasks = []
     temp_files = []
-    
     for idx, turn in enumerate(script):
         speaker = turn.get('speaker', 'HsiaoChen')
         text = turn.get('text', '')
@@ -557,7 +719,7 @@ async def generate_all_voices(script, temp_dir):
         out_path = os.path.join(temp_dir, f"turn_{idx:03d}.mp3")
         temp_files.append(out_path)
         
-        tasks.append(generate_voice_chunk(text, voice, out_path))
+        tasks.append(generate_with_retry(text, voice, out_path, idx))
         
     await asyncio.gather(*tasks)
     return temp_files
@@ -682,8 +844,8 @@ def main():
     start_time = datetime.now()
     print(f"Pipeline started at: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
     
-    # Common: Fetch Investing.com headlines
-    news_items = fetch_investing_news()
+    # Common: Fetch popular finance shows latest uploads
+    finance_shows = fetch_finance_shows_news()
     date_str = datetime.now().strftime("%Y-%m-%d")
     
     # ------------------ US Market Pipeline ------------------
@@ -693,9 +855,8 @@ def main():
         scraped_us_videos = get_all_scraped_videos_data()
         
         # Call Gemini to generate US Report & Dialogue Script
-        us_report_data = generate_insights_and_podcast(scraped_us_videos, news_items)
+        us_report_data = generate_insights_and_podcast(scraped_us_videos, finance_shows)
         us_report_data['date'] = date_str
-        us_report_data['investing_news'] = news_items
         
         # Generate US audio podcast file
         us_audio_generated = False
@@ -745,9 +906,8 @@ def main():
         scraped_tw_videos = get_taiwan_shows_data()
         
         # Call Gemini to generate Taiwan Report & Dialogue Script
-        tw_report_data = generate_taiwan_insights_and_podcast(scraped_tw_videos, news_items)
+        tw_report_data = generate_taiwan_insights_and_podcast(scraped_tw_videos, finance_shows)
         tw_report_data['date'] = date_str
-        tw_report_data['investing_news'] = news_items
         
         # Generate Taiwan audio podcast file
         tw_audio_generated = False
