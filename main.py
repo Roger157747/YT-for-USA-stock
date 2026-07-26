@@ -371,7 +371,7 @@ def generate_insights_and_podcast(scraped_videos, news_items):
 {{
   "title": "今日美股動態與深度聲報",
   "written_report": {{
-    "stock_analysis": "股市與產業分析內容（繁體中文，格式請使用 Markdown。需包含主要板塊走勢、強勢股突破或季報分析、特定產業趨勢）",
+    "stock_analysis": "指數及產業板塊分析內容（繁體中文，格式請使用 Markdown。需包含主要指數走勢如標普/那指/道瓊/費半、主要板塊走勢、強勢股突破或季報分析、特定產業趨勢）",
     "fund_flow": "資金流向內容（繁體中文，格式請使用 Markdown。需分析板塊輪動、避險情緒、法人機構動向與市場成交量討論）",
     "investment_advice": "長線投資建議內容（繁體中文，格式請使用 Markdown。需包含長期資產配置趨勢、可關注標的之技術與基本面建議）"
   }},
