@@ -1,5 +1,5 @@
 {
-  "title": "台股每日分析 (2026-10-13)",
+  "title": "台股每日分析 (2026-10-14)",
   "written_report": {
     "stock_market": "台股行情分析生成暫時失敗，請稍候重試或檢查 API 設定。",
     "industry_analysis": "目前無產業分析資料。",
@@ -27,21 +27,21 @@
     },
     {
       "show": "CNBC Business News Update",
-      "title": "Market Close: Stocks Mixed, Subscription Muse Assistant, October Surprise Watch • 10/12/26",
+      "title": "Market Close: Stocks Fall, Bank of America Faces Penalty, Bank Results Mixed • 10/13/26",
       "link": "https://www.cnbc.com",
-      "pubDate": "2026/10/12",
+      "pubDate": "2026/10/13",
       "stocks": [],
       "issues": [],
-      "summary": "[10/12] CNBC Business News Update 重點整理：內容獲取暫時失敗，請至原影音連結觀看。"
+      "summary": "[10/13] CNBC Business News Update 重點整理：內容獲取暫時失敗，請至原影音連結觀看。"
     },
     {
       "show": "財經一路發",
-      "title": "AI改變了市場規律？公債殖利率走高，不用怕？ 2026.10.12",
-      "link": "https://open.firstory.fm/story/cmv5616gz01cc01x9a4d25p0f",
-      "pubDate": "2026/10/12",
+      "title": "財經觀點｜台股創高受阻！？ Q4攻守兼備標的？ 2026.10.13",
+      "link": "https://open.firstory.fm/story/cmv6la2zo06qc01vw1bfw5osy",
+      "pubDate": "2026/10/13",
       "stocks": [],
       "issues": [],
-      "summary": "[10/12] 財經一路發 重點整理：內容獲取暫時失敗，請至原影音連結觀看。"
+      "summary": "[10/13] 財經一路發 重點整理：內容獲取暫時失敗，請至原影音連結觀看。"
     },
     {
       "show": "財富旺得福",
@@ -63,5 +63,5 @@
       "text": "對啊，大家先看看相關影音內容，祝大家操作順利！"
     }
   ],
-  "date": "2026-10-13"
+  "date": "2026-10-14"
 }
