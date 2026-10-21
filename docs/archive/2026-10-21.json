@@ -1,0 +1,66 @@
+{
+  "title": "美股每日聲報 (2026-10-21)",
+  "written_report": {
+    "stock_analysis": "分析生成暫時失敗，請稍候重試或檢查 API 設定。",
+    "fund_flow": "目前無資金流動資料。",
+    "investment_advice": "目前無建議。"
+  },
+  "finance_shows": [
+    {
+      "show": "股癌",
+      "title": "EP707 | 🦋",
+      "link": "https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/9e8ff549-d6ec-4abd-a7d2-e2a65c44fac0",
+      "pubDate": "2026/10/21",
+      "stocks": [],
+      "issues": [],
+      "summary": "[10/21] EP707 重點整理：內容獲取暫時失敗，請至原影音連結觀看。"
+    },
+    {
+      "show": "財報狗-掌握台股美股時事議題",
+      "title": "570.【財經時事放大鏡】4F² x OCP x 能源鬼轉AIDC",
+      "link": "https://open.firstory.fm/story/cmv9ow2i10hrf01wxc5685sr9",
+      "pubDate": "2026/10/15",
+      "stocks": [],
+      "issues": [],
+      "summary": "[10/15] 財報狗-掌握台股美股時事議題 重點整理：內容獲取暫時失敗，請至原影音連結觀看。"
+    },
+    {
+      "show": "CNBC Business News Update",
+      "title": "Market Close: S&P 500 Up For 3rd Day, SpaceX Drives AI Trade, AT&T Slips 10-21-2026",
+      "link": "https://www.cnbc.com",
+      "pubDate": "2026/10/21",
+      "stocks": [],
+      "issues": [],
+      "summary": "[10/21] CNBC Business News Update 重點整理：內容獲取暫時失敗，請至原影音連結觀看。"
+    },
+    {
+      "show": "財經一路發",
+      "title": "殖利率壓力大？股市估值過高？市場寬度不足？ 2026.10.21",
+      "link": "https://open.firstory.fm/story/cmvi2nvzc06u701ydcoeq59b9",
+      "pubDate": "2026/10/21",
+      "stocks": [],
+      "issues": [],
+      "summary": "[10/21] 財經一路發 重點整理：內容獲取暫時失敗，請至原影音連結觀看。"
+    },
+    {
+      "show": "財富旺得福",
+      "title": "【財富汪得福】「光學元件」、「被動元件」熱一波！│汪潔民   20261021",
+      "link": "https://open.firstory.fm/story/cmvh7ly2i044l01w3fhmkg9dr",
+      "pubDate": "2026/10/21",
+      "stocks": [],
+      "issues": [],
+      "summary": "[10/21] 財富旺得福 重點整理：內容獲取暫時失敗，請至原影音連結觀看。"
+    }
+  ],
+  "podcast_script": [
+    {
+      "speaker": "HsiaoChen",
+      "text": "不好意思，今天我們的 AI 生成系統遇到了一些問題，請明天再收聽我們的精彩解析！"
+    },
+    {
+      "speaker": "YunJhe",
+      "text": "對啊，大家先看看各影音節目的最新內容，祝大家投資順利！"
+    }
+  ],
+  "date": "2026-10-21"
+}
